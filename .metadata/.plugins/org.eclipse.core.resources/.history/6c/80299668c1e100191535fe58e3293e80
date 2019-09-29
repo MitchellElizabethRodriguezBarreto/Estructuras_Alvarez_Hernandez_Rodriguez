@@ -1,0 +1,5 @@
+
+public class Data <T>{
+	Data<T> next;
+	Data<T> prev;
+}

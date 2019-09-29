@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+F:\00Universidad nacional\0 Semestres\0 9 semestre\Estructura de Datos\estructurasD\.metadata\.plugins\org.eclipse.jdt.core
+3996102163.index
+2587652329.index

@@ -1,0 +1,31 @@
+
+public class Prueba {
+	public static void main(String[] args) {
+		Array<int[]> list = new Array<int[]>();
+		int[] pepe = new int[5];
+		pepe[0]=5;
+		pepe[1]=4;
+		pepe[2]=3;
+		pepe[3]=2;
+		pepe[4]=1;
+		
+		int[] pepe2 = new int[5];
+		pepe2[0]=11;
+		pepe2[1]=12;
+		pepe2[2]=13;
+		pepe2[3]=14;
+		pepe2[4]=15;
+		
+		int[] pepe3 = new int[5];
+		pepe2[0]=20;
+		pepe2[1]=19;
+		pepe2[2]=18;
+		pepe2[3]=17;
+		pepe2[4]=16;
+		
+		list.Annadir(pepe);
+		list.Annadir(pepe2);
+		list.Annadir(pepe3);
+		list.Mostrar();
+	}
+}
