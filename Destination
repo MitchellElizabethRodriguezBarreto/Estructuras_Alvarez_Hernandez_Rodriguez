@@ -6,7 +6,7 @@ public class Destination {
 //	Si se desea anadir o quitar ciudades, FAVOR actualizar las 
 //	funciones getPrice, getCity, y por ultimo la interfaz DestinationAndPrice
 	
-	public static final int QUANTYCITIES = 9;
+	public static final int numcities = 9;
 	
 	public static final int CARTAGENA	= 0;
 	public static final int SANTAMARTA 	= 1;
