@@ -1,13 +1,13 @@
 public class Chairs {
 	
-	public static final int QUANTYCHAIRS = 30;
+	public static final int numchairs = 30;
 	
 //	Por defecto se inicializa todo el Array en FALSE
-	private boolean[] chairs = new boolean[QUANTYCHAIRS];
+	private boolean[] chairs = new boolean[numchairs];
 	
 	
 	public Chairs() {
-		for(int i=0; i<QUANTYCHAIRS; i++) {
+		for(int i=0; i<numchairs; i++) {
 			chairs[i]=true;
 		}
 	}
@@ -30,19 +30,20 @@ public class Chairs {
 	
 //	Imprimir todas las sillas
 	public void displayChairs() {
-		for(int i = 0; i < QUANTYCHAIRS; i++) {
+		for(int i = 0; i < numchairs; i++) {
 			System.out.println(chairs[i]);			
 		}
 	}
 	
 //	Para saber si quedan sillas libres o no
 	public boolean getAvailability() {
-		for(int i = 0; i < QUANTYCHAIRS; i++) {
+		for(int i = 0; i < numchairs; i++) {
 			if(chairs[i] == true) {
 				return true;
 			}
 		}
 		return false;
 	}
-  
+	
+	
 }
