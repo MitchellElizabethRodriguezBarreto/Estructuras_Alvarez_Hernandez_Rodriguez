@@ -1,0 +1,32 @@
+package time;
+
+import java.util.ArrayList;
+
+/**
+ *
+ * @author MI COMPUTADORA
+ */
+public abstract class Time {
+    private long init, finish, total;
+    int[] a=new int[2];
+
+    public Time(long init, long finish){
+            this.init = init;
+            this.finish = finish;
+    }
+    public long initTime(){	
+        init = System.currentTimeMillis();
+        return init;
+    }
+    public long finishTime(){		
+        finish = System.currentTimeMillis();
+        return finish;
+    }
+    public long getTime(){	
+        total=finish-init;
+        System.out.println("Tiempo de ejecuciÃ³n en milisegundos: " + total); //Mostramos en pantalla el tiempo de ejecuciÃ³n en milisegundos
+        return total;
+    }
+    // Se consultÃ³ como medir el tiempo de ejecuciÃ³n de la siguiente pÃ¡gina web 
+    //https://unestudiantedeinformatica.blogspot.com/2014/07/medir-el-tiempo-de-ejecucion-en-java.html
+}
