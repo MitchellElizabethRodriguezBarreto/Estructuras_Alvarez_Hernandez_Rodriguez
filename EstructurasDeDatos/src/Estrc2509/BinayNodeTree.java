@@ -43,7 +43,4 @@ public class BinayNodeTree<T> {
 
 
 	
-//	branch = rama
-
-	
 }
