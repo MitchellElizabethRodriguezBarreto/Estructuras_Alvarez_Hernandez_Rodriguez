@@ -31,8 +31,14 @@ public class Stack<T> {
 
 	public void quit() {
 		if(this.isEmpty()) {
-			System.out.println("La lista esta vacia!!!");
-			return;
+		System.out.println("La lista esta vacia!!!");
+		return;
+		}
+		if(size == 1){
+		    this.head = null;
+		    this.tail = null;
+		    size--;
+		    return;
 		}
 		this.tail.getPrev().setNext(null);
 		this.tail = this.tail.getPrev();
