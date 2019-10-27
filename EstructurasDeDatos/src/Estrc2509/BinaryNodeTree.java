@@ -1,43 +1,43 @@
 package Estrc2509;
 
-public class BinayNodeTree<T> {
+public class BinaryNodeTree<T> {
 
-	private T key;
-	private BinayNodeTree<T> left;
-	private BinayNodeTree<T> right;
-	private BinayNodeTree<T> parent;
+	private int key;
+	private BinaryNodeTree<T> left;
+	private BinaryNodeTree<T> right;
+	private BinaryNodeTree<T> parent;
 	
-	public BinayNodeTree(T key) {
+	public BinaryNodeTree(int key) {
 		this.key = key;
 		this.left = null;
 		this.right = null;
 	}
 	
-	public void setLeft(BinayNodeTree<T> left) {
+	public void setLeft(BinaryNodeTree<T> left) {
 		this.left = left;
 	}
 	
-	public BinayNodeTree<T> getLeft() {
+	public BinaryNodeTree<T> getLeft() {
 		return this.left;
 	}
 	
-	public void setRight(BinayNodeTree<T> right) {
+	public void setRight(BinaryNodeTree<T> right) {
 		this.right = right;
 	}
 
-	public BinayNodeTree<T> getRight() {
+	public BinaryNodeTree<T> getRight() {
 		return this.right;
 	}
 	
-	public void setParent(BinayNodeTree<T> parent) {
+	public void setParent(BinaryNodeTree<T> parent) {
 		this.parent = parent;
 	}
 
-	public BinayNodeTree<T> getParent() {
+	public BinaryNodeTree<T> getParent() {
 		return this.parent = parent;
 	}
 
-	public T getKey() {
+	public int getKey() {
 		return this.key;
 	}
 
