@@ -32,6 +32,7 @@ public class Main {
 	public static void main(String[] args) {
 		Random rnd= new Random();
 		MyArrayList<String[]> list = new MyArrayList<String[]>();
+		Reservation<String[]> reserv = new Reservation<String[]>();
 		list.DisplayList();
 		
 		Time time = new Time();
@@ -50,10 +51,16 @@ public class Main {
 
 			Fly fly = new Fly(city, hour,minutes);
 			list.PushFront(array);
+			reserv.add(array);
+			
 		}
 		list.DisplayList();
+		reserv.show();
 		time.finishTime();
 		time.getTime();
+		
+		VisualInterface window = new VisualInterface();
+		window.FirstWindow();
 		
 	}
 	
