@@ -1,5 +1,7 @@
 package Estrc2509;
 
+import java.awt.Insets;
+
 public class Tree<T> {
 	
 	private int size;
@@ -91,7 +93,23 @@ public class Tree<T> {
 		return L;
 	}
 	
-	
+//	public void insertAVL(int k, BinaryNodeTree<T> root) {
+//		insert(k, root);
+//		BinaryNodeTree<T> N = find(k, root);
+//		rebalance(N);
+//	}
+//	
+//	private void rebalance(BinaryNodeTree<T> N) {
+//		BinaryNodeTree<T> P = N.getParent();
+//		if() {
+//			
+//		}
+//		if() {
+//			
+//		}
+//		
+//	}
+
 	public void insert(int k, BinaryNodeTree<T> root) {
 		BinaryNodeTree<T> N = find(k,root);
 		
