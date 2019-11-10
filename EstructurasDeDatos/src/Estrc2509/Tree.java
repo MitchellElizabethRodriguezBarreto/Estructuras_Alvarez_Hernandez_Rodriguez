@@ -6,10 +6,18 @@ public class Tree<T> {
 	private BinaryNodeTree<T> root;
 	
 	
+	public Tree() {
+		this.size = 0;
+		this.root = null;
+	}
+	
+	public BinaryNodeTree<T> getRoot (){
+		return this.root;
+	}
+	
 	public int size() {
 		return this.size;
 	}
-	
 	
 	public BinaryNodeTree<T> find(int k, BinaryNodeTree<T> root) {
 		
@@ -40,8 +48,10 @@ public class Tree<T> {
 	}
 	
 	public BinaryNodeTree<T> next(BinaryNodeTree<T> N){
+
+		
 		if(N.getRight() != null) {
-			return leftDescendant(N);
+			return leftDescendant(N.getRight());
 		}
 		else {
 			return rightAncestor(N);
@@ -56,6 +66,11 @@ public class Tree<T> {
 		}
 	}
 	private BinaryNodeTree<T> rightAncestor(BinaryNodeTree<T> N){
+		
+		if(N.getParent() == null) {
+			return null;
+		}
+		
 		if(N.getKey() < N.getParent().getKey()) {
 			return N.getParent();
 		}else {
@@ -81,7 +96,7 @@ public class Tree<T> {
 		BinaryNodeTree<T> N = find(k,root);
 		
 		if(this.root == null) {
-			this.root = root;
+			this.root = new BinaryNodeTree<T>(k);
 			return;
 		}
 		
@@ -168,7 +183,7 @@ public class Tree<T> {
 		}
 	}
 	
-	public void mm() {
+	public void levels() {
 		
 	}
 	

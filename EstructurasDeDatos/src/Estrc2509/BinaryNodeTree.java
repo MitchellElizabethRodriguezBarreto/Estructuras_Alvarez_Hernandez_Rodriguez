@@ -34,7 +34,7 @@ public class BinaryNodeTree<T> {
 	}
 
 	public BinaryNodeTree<T> getParent() {
-		return this.parent = parent;
+		return this.parent;
 	}
 
 	public int getKey() {
