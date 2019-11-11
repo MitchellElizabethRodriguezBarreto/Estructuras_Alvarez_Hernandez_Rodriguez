@@ -282,6 +282,16 @@ public class VisualInterface{
         // Botones -------------------------------------------------------------
      
         JButton labelReservations = new JButton("Reservar");
+        labelReservations.addActionListener(new AbstractAction(){ 
+			 public void actionPerformed(ActionEvent e){ 
+				 /*frame.setVisible(false); 
+				 frame.dispose(); */
+				 ThirdWindow();
+				 frame.setVisible(false);
+			 } 
+			}); 
+        
+        
         GridBagConstraints locate7 = new GridBagConstraints();
         locate7.gridx = 1;
         locate7.gridy = 5;
@@ -306,5 +316,111 @@ public class VisualInterface{
         locate8.insets = new Insets(10, 20, 10, 0);
         distribution.add(back, locate8);
         frame.setVisible(true);
+	}
+	
+	public void ThirdWindow() {
+		JFrame frame = new JFrame("AeroUN");
+  		frame.setSize(500,450);
+  		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		Container distribution = frame.getContentPane();		
+
+		frame.setLayout(new GridBagLayout());
+		
+		distribution.setLayout(new GridBagLayout());
+
+		//GridBagConstraints(int gridx, int gridy, int gridwidth, int gridheight, double weightx, double weighty, int anchor, int fill, Insets insets, int ipadx, int ipady)
+
+		// Etiquetas -------------------------------------------------------------
+
+		JLabel aero = new JLabel("AeroUN");
+		    GridBagConstraints locate0 = new GridBagConstraints();
+		    locate0.gridx = 0;
+		    locate0.gridy = 0;
+		    locate0.anchor = GridBagConstraints.CENTER;
+		    locate0.insets = new Insets(10, 20, 20, 20);
+		    locate0.gridwidth = 5;
+		    distribution.add(aero, locate0);
+		   
+		    JLabel labelName = new JLabel("Tu reserva está lista!");
+		    GridBagConstraints locate1 = new GridBagConstraints();
+		    locate1.gridx = 0;
+		    locate1.gridy = 1;
+		    locate1.anchor = GridBagConstraints.WEST;
+		    locate1.insets = new Insets(10, 20, 10, 0);
+		    distribution.add(labelName, locate1);
+		   
+		    JLabel nombre = new JLabel("Nombre ");
+		    GridBagConstraints locate11 = new GridBagConstraints();
+		    locate11.gridx = 3;
+		    locate11.gridy = 1;
+		    locate11.anchor = GridBagConstraints.WEST;
+		    locate11.insets = new Insets(10, 20, 10, 0);
+		    distribution.add(nombre, locate11);
+		       
+		    JLabel no = new JLabel("No. ");
+		    GridBagConstraints locate12 = new GridBagConstraints();
+		    locate12.gridx = 3;
+		    locate12.gridy = 2;
+		    locate12.anchor = GridBagConstraints.WEST;
+		    locate12.insets = new Insets(10, 20, 10, 0);
+		    distribution.add(no, locate12);
+		   
+		    JLabel sal = new JLabel("Hora de salida ");
+		    GridBagConstraints locate13 = new GridBagConstraints();
+		    locate13.gridx = 3;
+		    locate13.gridy = 3;
+		    locate13.anchor = GridBagConstraints.WEST;
+		    locate13.insets = new Insets(10, 20, 10, 0);
+		    distribution.add(sal, locate13);
+		   
+		    JLabel lleg = new JLabel("Hora de llegada ");
+		    GridBagConstraints locate14 = new GridBagConstraints();
+		    locate14.gridx = 3;
+		    locate14.gridy = 4;
+		    locate14.anchor = GridBagConstraints.WEST;
+		    locate14.insets = new Insets(10, 20, 10, 0);
+		    distribution.add(lleg, locate14);
+		   
+		    JLabel sillas = new JLabel("Sillas disponibles ");
+		    GridBagConstraints locate15 = new GridBagConstraints();
+		    locate15.gridx = 3;
+		    locate15.gridy = 5;		
+		    locate15.anchor = GridBagConstraints.WEST;
+		    locate15.insets = new Insets(10, 20, 10, 0);
+		    distribution.add(sillas, locate15);
+		   
+		    JLabel costo = new JLabel("Costo ");
+		    GridBagConstraints locate16 = new GridBagConstraints();
+		    locate16.gridx = 3;
+		    locate16.gridy = 6;
+		    locate16.anchor = GridBagConstraints.WEST;
+		    locate16.insets = new Insets(10, 20, 10, 0);
+		    distribution.add(costo, locate16);
+		   
+		    // Botones -------------------------------------------------------------
+		   
+		    JButton labelReservations = new JButton("Cancelar");
+		    GridBagConstraints locate7 = new GridBagConstraints();
+		    locate7.gridx = 1;
+		    locate7.gridy = 6;
+		    locate7.anchor = GridBagConstraints.WEST;
+		    distribution.add(labelReservations, locate7);
+		   
+		    JButton Back = new JButton("Regresar");
+		    GridBagConstraints locate8 = new GridBagConstraints();
+		    locate8.gridx = 0;
+		    locate8.gridy = 5;
+		    locate8.anchor = GridBagConstraints.WEST;
+		    distribution.add(Back, locate8);
+		   
+		    JButton inicio = new JButton("Volver al inicio");
+		    GridBagConstraints locate9 = new GridBagConstraints();
+		    locate9.gridx = 0;
+		    locate9.gridy = 6;
+		    locate9.anchor = GridBagConstraints.WEST;
+		    distribution.add(inicio, locate9);
+		    
+		    frame.setVisible(true);
 	}
 }
