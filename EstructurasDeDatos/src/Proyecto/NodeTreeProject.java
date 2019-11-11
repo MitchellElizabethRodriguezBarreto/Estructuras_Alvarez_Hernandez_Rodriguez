@@ -14,6 +14,9 @@ public class NodeTreeProject<T> extends BinaryNodeTree<T> {
 	
 	public NodeTreeProject(int key) {
 		super(key);
+		for(int i=0; i<4; i++) {
+			Reservation[i]=0;
+		}
 	}
 
 	
