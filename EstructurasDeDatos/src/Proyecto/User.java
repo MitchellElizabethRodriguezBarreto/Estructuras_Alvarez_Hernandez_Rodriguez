@@ -1,6 +1,6 @@
 package Proyecto;
 
-public class Reservation <T>{
+public class User <T>{
 	Data<T> head;
 	Data<T> tail;
 	int tam = 0;
@@ -17,7 +17,7 @@ public class Reservation <T>{
 		}
 		this.tail = valor;
 		valor.next = null;
-		System.out.println("La reserva se ha aÃ±adido exitosamente");
+		//System.out.println("La reserva se ha añadido exitosamente");
 		tam++;
 	}
 	
@@ -113,3 +113,4 @@ public class Reservation <T>{
 		}
 	}
 }
+

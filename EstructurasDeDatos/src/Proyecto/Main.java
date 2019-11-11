@@ -33,14 +33,17 @@ public class Main {
 		Destination prueba = new Destination(2);
 		System.out.println(prueba.getCity());
 		
-		Random rnd= new Random();
-		MyArrayList<String[]> list = new MyArrayList<String[]>();
-		Reservation<String[]> reserv = new Reservation<String[]>();
-		list.DisplayList();
 		
-		Time time = new Time();
-		time.initTime();
-		for(int i = 0; i<10; i++) {
+		Random rnd= new Random();
+		//MyArrayList<String[]> list = new MyArrayList<String[]>();
+		User<String[]> reserv = new User<String[]>();
+		//list.DisplayList();
+					
+		String[] arrayData = new String[4];
+		
+		int iteraciones = 8000000;
+		
+		for(int i = 0; i<iteraciones; i++) {
 			int ID = rnd.nextInt(100000);
 			int city= rnd.nextInt(9);
 			int hour= rnd.nextInt(23);
@@ -53,14 +56,21 @@ public class Main {
 			array[3]=Integer.toString(minutes);
 
 			Fly fly = new Fly(city, hour,minutes);
-			list.PushFront(array);
+			//list.PushFront(array);
 			reserv.add(array);
 			
+			if(i == iteraciones-2) {
+				arrayData = array;
+			}						
 		}
-		list.DisplayList();
-		reserv.show();
-		time.finishTime();
+		
+		Time time = new Time();
+		time.initTime();
+		reserv.delete(arrayData);
+		time.finishTime();		
+		//reserv.show();		
 		time.getTime();
+		
 		
 		VisualInterface window = new VisualInterface();
 		window.FirstWindow();
