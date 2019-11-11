@@ -4,6 +4,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+class BuscarPulsado implements ActionListener{
+	private JTextField cuadro;
+	public String nombre;
+	
+	public BuscarPulsado(JTextField Texto) {
+		this.cuadro = Texto;		
+	}
+
+	public void actionPerformed(ActionEvent e) {
+		this.nombre = cuadro.getText();
+		System.out.println("Nombre: " + nombre);
+		//datos(1);
+	}
+	
+	/*public boolean datos(int a) {
+		return true;		
+	}*/
+}
 
 public class VisualInterface{
 	
@@ -104,12 +122,21 @@ public class VisualInterface{
 		distribution.add(labelReservations, locate7);
 		
 		JButton searchFlight = new JButton("Buscar");
+		
+		BuscarPulsado hola = new BuscarPulsado(name);
+		searchFlight.addActionListener(hola);
+		System.out.println(hola.nombre);		
+		/*while(hola.datos()) {
+			System.out.println(":(");
+		}*/
+		
 		GridBagConstraints locate11 = new GridBagConstraints();
 		locate11.gridx = 4;
 		locate11.gridy = 4;
 		locate11.anchor = GridBagConstraints.EAST;
 		locate11.insets = new Insets(50, 0, 0, 20);
-		distribution.add(searchFlight, locate11);
+		distribution.add(searchFlight, locate11);	
+		
 		
 		// Listas desplegables -------------------------------------------------------------
 		

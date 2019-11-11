@@ -30,6 +30,9 @@ public class Main {
 	}
 	
 	public static void main(String[] args) {
+		Destination prueba = new Destination(2);
+		System.out.println(prueba.getCity());
+		
 		Random rnd= new Random();
 		MyArrayList<String[]> list = new MyArrayList<String[]>();
 		Reservation<String[]> reserv = new Reservation<String[]>();
