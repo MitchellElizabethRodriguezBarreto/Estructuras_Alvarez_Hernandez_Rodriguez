@@ -171,7 +171,7 @@ public class Tree<T> {
 		}
 		
 		if(N.getKey() == k) {
-			System.out.println("Ese elemento ya se encuentra en el arbol. No agregado");
+			System.out.println("Ese elemento ya se encuentra en el arbol. No agregado " + k);
 			return;
 		}else if(k < N.getKey() ) {
 			BinaryNodeTree<T> left = new BinaryNodeTree<>(k);

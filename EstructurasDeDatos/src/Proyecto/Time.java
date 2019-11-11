@@ -2,7 +2,7 @@ package Proyecto;
 
 public class Time {
 
-	private long init, finish, total;
+	private double init, finish, total;
 
 	int[] a=new int[2];
 
@@ -11,20 +11,20 @@ public class Time {
 	     this.finish = 0;
 	}
 
-	public long initTime(){	
+	public double initTime(){	
 	    init = System.currentTimeMillis();
 	    return init;
 	}
 	    
-	public long finishTime(){		
+	public double finishTime(){		
 		finish = System.currentTimeMillis();
 	    return finish;
 	}
 	    
-	public long getTime(){	
+	public void getTime(){	
 		total=finish-init;
 	    System.out.println("Tiempo de ejecucion en milisegundos: " + total); //Mostramos en pantalla el tiempo de ejecucion en milisegundos
-	    return total;    
+	    return;    
 	}
 
 		

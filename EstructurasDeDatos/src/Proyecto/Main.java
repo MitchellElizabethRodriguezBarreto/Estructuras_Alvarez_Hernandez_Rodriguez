@@ -33,28 +33,39 @@ public class Main {
 	public static void main(String[] args) {
 		Random rnd= new Random();
 		
-		Tree<Integer> tree = new Tree<Integer>();
+		DoubleLinkedList<Integer> tree = new DoubleLinkedList<Integer>();
 		
-		for(int i = 0; i<10; i++) {
-			int ID = rnd.nextInt(100000);
+		Time mytime = new Time();
+		mytime.initTime();
+		for(int i = 0; i<10000000; i++) {
+			int ID = rnd.nextInt(1555555555);
 			int city= rnd.nextInt(9);
 			int hour= rnd.nextInt(23);
 			int minutes = rnd.nextInt(59);
 			
 			int[] array = new int[4];
 			
-			tree.insert(ID, tree.getRoot());
+			tree.PushBack(ID);
 			
 			array[0]=city;
 			array[1]=hour;
 			array[2]=minutes;
 			array[3]=113;
 			
-			tree.find(ID, tree.getRoot()).setReservation(array);
 		}
+		mytime.finishTime();
+		mytime.getTime();
 		
-		tree.inOrder(tree.getRoot());
-		tree.getRoot().displayNode();
+		int alea = rnd.nextInt(1555555555);
+		System.out.println(alea);
+		
+		mytime.initTime();
+		tree.PoPBack();
+		mytime.finishTime();
+		mytime.getTime();
+		
+//		tree.inOrder(tree.getRoot());
+//		tree.getRoot().displayNode();
 	}
 	
 }
