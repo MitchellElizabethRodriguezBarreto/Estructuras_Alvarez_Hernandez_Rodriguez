@@ -99,16 +99,68 @@ public class Tree<T> {
 //		rebalance(N);
 //	}
 //	
-//	private void rebalance(BinaryNodeTree<T> N) {
-//		BinaryNodeTree<T> P = N.getParent();
-//		if() {
-//			
-//		}
-//		if() {
-//			
-//		}
-//		
+//	
+//	public void AVLDelete(int k) {
+//		Delete(k, this.root);
+//		BinaryNodeTree<T> M = (?)
+//		rebalance(M);
 //	}
+	
+	private void rebalance(BinaryNodeTree<T> N) {
+		BinaryNodeTree<T> P = N.getParent();
+		if(N.getLeft().getHeight() > N.getRight().getHeight() +1) {
+			rebalanceRight(N);
+		}
+		if(N.getRight().getHeight() > N.getLeft().getHeight() +1) {
+			rebalanceLeft(N);
+		}
+		N.adjustHeight();
+		
+		if(P != null) {
+			rebalance(P);
+		}
+		
+	}
+
+	private void rebalanceLeft(BinaryNodeTree<T> N) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private void rebalanceRight(BinaryNodeTree<T> N) {
+		BinaryNodeTree<T> M = N.getLeft();
+		
+		if(M.getRight().getHeight() > M.getLeft().getHeight()) {
+			rotateLeft(M);
+			M.adjustHeight();
+		}
+		rotateRight(N);
+		N.adjustHeight();
+	}
+
+	private void rotateRight(BinaryNodeTree<T> X) {
+		BinaryNodeTree<T> P = X.getParent();
+		BinaryNodeTree<T> Y = X.getLeft();
+		BinaryNodeTree<T> B = Y.getRight();
+		
+		Y.setParent(P);
+		if(P.getKey() > Y.getKey()) {
+			P.setRight(Y);
+		}else {
+			P.setLeft(Y);
+		}
+		
+		X.setParent(Y);
+		Y.setRight(X);
+		
+		B.setParent(X);
+		X.setLeft(B);
+	}
+
+	private void rotateLeft(BinaryNodeTree<T> m) {
+		// TODO Auto-generated method stub
+		
+	}
 
 	public void insert(int k, BinaryNodeTree<T> root) {
 		BinaryNodeTree<T> N = find(k,root);
@@ -165,9 +217,7 @@ public class Tree<T> {
 		 */
 		
 	}
-	
-	
-	
+		
 	public void preOrder(BinaryNodeTree<T> root) {
 //		NODE, LEFT, RIGHT
 		if(root == null) {
