@@ -213,7 +213,7 @@ public class Tree<T> {
 		}
 		
 		/*
-		 * completar code!!! para eliminar :c
+		 * completar code!!! para eliminar 
 		 */
 		
 	}
