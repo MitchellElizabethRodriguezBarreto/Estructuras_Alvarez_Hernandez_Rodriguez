@@ -16,5 +16,5 @@ La versión final de la entrega intermedia del proyecto se encuentra en la rama 
 + **data:** No se tiene esta carpeta debido a que los datos de prueba del proyecto se están generando por medio de números aleatorios y un ciclo *for*.
 + **dist:** No se posee esta carpeta porque el avance de la interfaz se desarrolló usando la librería *Swing* de Java. 
 + **lib:** No se posee esta carpeta porque no se descargaron librerías adicionales de Java.
-+ **Otros archivos: ** No se usaron archivos adicionales.
++ **Otros archivos:** No se usaron archivos adicionales.
 
