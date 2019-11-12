@@ -26,7 +26,7 @@ public class User <T>{
 		Data<T> valor = new Data<T> (reserva);
 		
 		if(this.head == null && this.tail == null) {
-			System.out.println("La lista est√° vac√≠a, no es posible eliminar reservas");
+			System.out.println("La lista est· vacÌa, no es posible eliminar reservas");
 		} 
 		else if(this.head == this.tail) {
 			this.head = null;
@@ -39,7 +39,7 @@ public class User <T>{
 			
 			for(int i = 0; i < tam; i++) {
 				if(busca_valor.value != valor.value && busca_valor.next == null) {
-					System.out.println("√âsta reserva no se ha encontrado, no es posible eliminarla");
+					System.out.println("…sta reserva no se ha encontrado, no es posible eliminarla");
 				}
 				else if(busca_valor.value == valor.value) {
 						busca_valor.prev.next = busca_valor.next;
@@ -60,7 +60,7 @@ public class User <T>{
 	
 	public void empty() {
 		if(this.head == null && this.tail == null) {
-			System.out.println("La lista est√° vac√≠a, no se encontr√≥ ninguna reserva");
+			System.out.println("La lista est· vacÌa, no se encontrÛ ninguna reserva");
 		}
 		else {
 			System.out.println("La lista si presenta reservas");
@@ -69,7 +69,7 @@ public class User <T>{
 	
 	public void show() {
 		if(this.head == null && this.tail == null) {
-			System.out.println("La lista est√° vac√≠a, no es posible mostrala");
+			System.out.println("La lista est· vacÌa, no es posible mostrala");
 		}
 		else {
 			Data<T> valor = this.head;
@@ -93,13 +93,13 @@ public class User <T>{
 		Data<T> valor = new Data<T> (reserva);
 		
 		if(this.head == null && this.tail == null) {
-			System.out.println("La lista est√° vac√≠a, √©sta reserva no existe");
+			System.out.println("La lista est· vacÌa, esta reserva no existe");
 		}
 		else {
 			Data<T> busca_valor = this.head;
 			for(int i = 0; i < tam; i++) {
 				if(busca_valor.value != valor.value && busca_valor.next == null) {
-					System.out.println("√âsta reserva no se ha encontrado");
+					System.out.println("Esta reserva no se ha encontrado");
 				}
 				else if(busca_valor.value == valor.value) {
 					System.out.println("Los datos de la reserva solicitada son:");

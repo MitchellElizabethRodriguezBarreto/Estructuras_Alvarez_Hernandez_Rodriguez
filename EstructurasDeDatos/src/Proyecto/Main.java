@@ -80,6 +80,9 @@ public class Main {
 		
 //		tree.inOrder(tree.getRoot());
 //		tree.getRoot().displayNode();
+		
+		VisualInterface window = new VisualInterface();
+		window.FirstWindow();
 	}
 	
 }
