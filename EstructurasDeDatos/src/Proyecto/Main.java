@@ -34,10 +34,14 @@ public class Main {
 		Random rnd= new Random();
 		
 		DoubleLinkedList<Integer> tree = new DoubleLinkedList<Integer>();
+		User<int[]> reserva = new User<int[]>();
+		
+		int iteraciones = 1000000;
+		int[] arrayData = new int[4];
 		
 		Time mytime = new Time();
 		mytime.initTime();
-		for(int i = 0; i<10000000; i++) {
+		for(int i = 0; i<iteraciones; i++) {
 			int ID = rnd.nextInt(1555555555);
 			int city= rnd.nextInt(9);
 			int hour= rnd.nextInt(23);
@@ -52,6 +56,11 @@ public class Main {
 			array[2]=minutes;
 			array[3]=113;
 			
+			reserva.add(array);
+			
+			if(i == iteraciones-2) {
+				arrayData = array;
+			}
 		}
 		mytime.finishTime();
 		mytime.getTime();
@@ -63,6 +72,11 @@ public class Main {
 		tree.PoPBack();
 		mytime.finishTime();
 		mytime.getTime();
+		
+		mytime.initTime();
+		reserva.delete(arrayData);
+		mytime.finishTime();	
+		mytime.getTime();		
 		
 //		tree.inOrder(tree.getRoot());
 //		tree.getRoot().displayNode();
