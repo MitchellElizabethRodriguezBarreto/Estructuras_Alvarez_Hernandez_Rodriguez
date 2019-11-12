@@ -442,7 +442,7 @@ public class VisualInterface{
 	    locate10.anchor = GridBagConstraints.WEST;
 	    third.add(inicio, locate10);
 	    
-	    JButton exit = new JButton("Salir");
+	    /*JButton exit = new JButton("Salir");
 	    exit.addActionListener(new AbstractAction(){ 
 			 public void actionPerformed(ActionEvent e){
 				 frame.setVisible(false);
@@ -452,7 +452,7 @@ public class VisualInterface{
 	    locate11.gridx = 0;
 	    locate11.gridy = 7;
 	    locate11.anchor = GridBagConstraints.WEST;
-	    third.add(exit, locate11);
+	    third.add(exit, locate11);*/
 	    
 	    third.setVisible(true);
 		distribution.add(third);

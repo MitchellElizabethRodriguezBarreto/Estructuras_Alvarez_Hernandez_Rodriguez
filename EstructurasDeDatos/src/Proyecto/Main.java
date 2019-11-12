@@ -41,7 +41,7 @@ public class Main {
 					
 		String[] arrayData = new String[4];
 		
-		int iteraciones = 10;
+		int iteraciones = 100000;
 		
 		for(int i = 0; i<iteraciones; i++) {
 			int ID = rnd.nextInt(100000);
