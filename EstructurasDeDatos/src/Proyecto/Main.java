@@ -35,9 +35,7 @@ public class Main {
 		
 		
 		Random rnd= new Random();
-		//MyArrayList<String[]> list = new MyArrayList<String[]>();
 		User<String[]> reserv = new User<String[]>();
-		//list.DisplayList();
 					
 		String[] arrayData = new String[4];
 		
