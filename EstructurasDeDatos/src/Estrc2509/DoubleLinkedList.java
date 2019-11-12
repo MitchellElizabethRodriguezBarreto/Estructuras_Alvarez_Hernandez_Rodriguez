@@ -57,7 +57,8 @@ public class DoubleLinkedList<T> {
 		}
 		else {
 //			
-			this.tail.setNext(null);
+			this.tail.getPrev().setNext(null);
+			this.tail = this.tail.getPrev();
 		}
 	}
 	
@@ -156,6 +157,23 @@ public class DoubleLinkedList<T> {
 			this.head = node2;
 		}
 		
+	}
+	
+	public void find(T k) {
+		if(this.head == this.tail) {
+			System.out.println("Lista Vacia...");
+			return;
+		}
+		DoubleNode<T>p=this.head;
+		while(p.getNext() != null) {
+			if(p.getKey() == k) {
+				System.out.println("Encontrado!");
+				return;
+			}
+			p = p.getNext();
+		}
+		System.out.println("No encontrado.");
+		return;
 	}
 	
 	public static void main(String[] args) {

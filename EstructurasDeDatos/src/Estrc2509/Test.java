@@ -12,13 +12,9 @@ public class Test {
 		arbol.insert(2, arbol.getRoot());
 		arbol.insert(3, arbol.getRoot());
 		arbol.insert(1, arbol.getRoot());
-		
-		System.out.println(arbol.getRoot().getKey());		
-		System.out.println(arbol.next(arbol.getRoot()).getKey());
-		
-		System.out.println(arbol.getRoot().getRight().getKey());				
-		
-		
+						
+		arbol.getRoot().adjustHeight();
+		System.out.print(arbol.getRoot().getLeft().getHeight());
 	}
 
 }

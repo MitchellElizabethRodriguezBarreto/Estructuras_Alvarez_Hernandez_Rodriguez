@@ -1,5 +1,7 @@
 package Estrc2509;
 
+import java.awt.Insets;
+
 public class Tree<T> {
 	
 	private int size;
@@ -91,7 +93,95 @@ public class Tree<T> {
 		return L;
 	}
 	
+//	public void insertAVL(int k, BinaryNodeTree<T> root) {
+//		insert(k, root);
+//		BinaryNodeTree<T> N = find(k, root);
+//		rebalance(N);
+//	}
+//	
+//	
+//	public void AVLDelete(int k) {
+//		Delete(k, this.root);
+//		BinaryNodeTree<T> M = (?)
+//		rebalance(M);
+//	}
 	
+	private void rebalance(BinaryNodeTree<T> N) {
+		BinaryNodeTree<T> P = N.getParent();
+		if(N.getLeft().getHeight() > N.getRight().getHeight() +1) {
+			rebalanceRight(N);
+		}
+		if(N.getRight().getHeight() > N.getLeft().getHeight() +1) {
+			rebalanceLeft(N);
+		}
+		N.adjustHeight();
+		
+		if(P != null) {
+			rebalance(P);
+		}
+		
+	}
+
+	private void rebalanceLeft(BinaryNodeTree<T> N) {
+		BinaryNodeTree<T> M = N.getRight();
+		
+		if(M.getLeft().getHeight() > M.getRight().getHeight()) {
+			rotateRight(M);
+			M.adjustHeight();
+		}
+		rotateLeft(N);
+		N.adjustHeight();		
+	}
+
+	private void rebalanceRight(BinaryNodeTree<T> N) {
+		BinaryNodeTree<T> M = N.getLeft();
+		
+		if(M.getRight().getHeight() > M.getLeft().getHeight()) {
+			rotateLeft(M);
+			M.adjustHeight();
+		}
+		rotateRight(N);
+		N.adjustHeight();
+	}
+
+	private void rotateRight(BinaryNodeTree<T> X) {
+		BinaryNodeTree<T> P = X.getParent();
+		BinaryNodeTree<T> Y = X.getLeft();
+		BinaryNodeTree<T> B = Y.getRight();
+		
+		Y.setParent(P);
+		if(P.getKey() > Y.getKey()) {
+			P.setRight(Y);
+		}else {
+			P.setLeft(Y);
+		}
+		
+		X.setParent(Y);
+		Y.setRight(X);
+		
+		B.setParent(X);
+		X.setLeft(B);
+	}
+
+	private void rotateLeft(BinaryNodeTree<T> X) {
+		BinaryNodeTree<T> P = X.getParent();
+		BinaryNodeTree<T> Y = X.getRight();
+		BinaryNodeTree<T> B = Y.getLeft();
+		
+		Y.setParent(P);
+		if(P.getKey() > Y.getKey()) {
+			P.setLeft(Y);
+		}else {
+			P.setRight(Y);
+		}
+		
+		X.setParent(Y);
+		Y.setLeft(X);
+		
+		B.setParent(X);
+		X.setRight(B);		
+	}
+
 	public void insert(int k, BinaryNodeTree<T> root) {
 		BinaryNodeTree<T> N = find(k,root);
 		
@@ -101,7 +191,7 @@ public class Tree<T> {
 		}
 		
 		if(N.getKey() == k) {
-			System.out.println("Ese elemento ya se encuentra en el arbol. No agregado");
+			System.out.println("Ese elemento ya se encuentra en el arbol. No agregado " + k);
 			return;
 		}else if(k < N.getKey() ) {
 			BinaryNodeTree<T> left = new BinaryNodeTree<>(k);
@@ -147,9 +237,7 @@ public class Tree<T> {
 		 */
 		
 	}
-	
-	
-	
+		
 	public void preOrder(BinaryNodeTree<T> root) {
 //		NODE, LEFT, RIGHT
 		if(root == null) {

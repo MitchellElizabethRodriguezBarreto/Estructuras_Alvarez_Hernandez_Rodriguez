@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 import java.util.Random;
 
 import Estrc2509.MyArrayList;
+import Estrc2509.Tree;
 import Estrc2509.DoubleLinkedList;
 
 public class Main {
@@ -31,30 +32,40 @@ public class Main {
 	
 	public static void main(String[] args) {
 		Random rnd= new Random();
-		MyArrayList<String[]> list = new MyArrayList<String[]>();
-		list.DisplayList();
 		
-		Time time = new Time();
-		time.initTime();
-		for(int i = 0; i<10; i++) {
-			int ID = rnd.nextInt(100000);
+		DoubleLinkedList<Integer> tree = new DoubleLinkedList<Integer>();
+		
+		Time mytime = new Time();
+		mytime.initTime();
+		for(int i = 0; i<10000000; i++) {
+			int ID = rnd.nextInt(1555555555);
 			int city= rnd.nextInt(9);
 			int hour= rnd.nextInt(23);
 			int minutes = rnd.nextInt(59);
 			
-			String[] array = new String[4];
-			array[0]=Integer.toString(ID);
-			array[1]=Integer.toString(city);
-			array[2]=Integer.toString(hour);
-			array[3]=Integer.toString(minutes);
-
-			Fly fly = new Fly(city, hour,minutes);
-			list.PushFront(array);
+			int[] array = new int[4];
+			
+			tree.PushBack(ID);
+			
+			array[0]=city;
+			array[1]=hour;
+			array[2]=minutes;
+			array[3]=113;
+			
 		}
-		list.DisplayList();
-		time.finishTime();
-		time.getTime();
+		mytime.finishTime();
+		mytime.getTime();
 		
+		int alea = rnd.nextInt(1555555555);
+		System.out.println(alea);
+		
+		mytime.initTime();
+		tree.PoPBack();
+		mytime.finishTime();
+		mytime.getTime();
+		
+//		tree.inOrder(tree.getRoot());
+//		tree.getRoot().displayNode();
 	}
 	
 }
