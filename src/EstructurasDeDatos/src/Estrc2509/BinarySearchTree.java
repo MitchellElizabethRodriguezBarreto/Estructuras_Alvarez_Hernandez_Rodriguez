@@ -96,11 +96,11 @@ public class BinarySearchTree {
 	}
 	public boolean empty() {
 		if(this.root == null) {
-			//System.out.println("El árbol está vacía");
+			//System.out.println("El arbol esta vacio");
 			return true;
 		}
 		else {
-			//System.out.println("El árbol no está vacía");
+			//System.out.println("El arbol esta vacio");
 			return false;
 		}
 	}	
@@ -199,9 +199,7 @@ public class BinarySearchTree {
 					oldNode.rightChild.parent = newNode;
 					newNode.rightChild = oldNode.rightChild;
 				}			
-				System.out.println("JUEPUTA");
 				if(oldNode.leftChild!=null) {
-					System.out.println("JUEPUTA");
 					oldNode.leftChild.parent= newNode;
 					newNode.leftChild = oldNode.leftChild;	
 				}
