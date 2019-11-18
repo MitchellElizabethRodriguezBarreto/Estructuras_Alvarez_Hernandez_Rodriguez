@@ -247,41 +247,46 @@ public class BinarySearchTree {
 	//El nodo gravedad es el que esta DESBALANCEADO y es el que va a caer
 	public void rotateRight(int gravity) {
 		NodeTree gravedad=find(gravity,root);
-		NodeTree pivote = gravedad.leftChild;		
-		if (gravedad==gravedad.parent.leftChild) {
-			gravedad.parent.leftChild=pivote;
-		} else {
-			gravedad.parent.rightChild=pivote;
+		NodeTree pivote = gravedad.leftChild;	
+		if(gravedad.parent != null) {
+			if (gravedad==gravedad.parent.leftChild) {
+				gravedad.parent.leftChild=pivote;
+			} else {
+				gravedad.parent.rightChild=pivote;
+			}
+			pivote.parent=gravedad.parent;
+			if (pivote.rightChild!=null) {
+				gravedad.leftChild=pivote.rightChild;
+				pivote.rightChild.parent=gravedad;
+			} else {
+				gravedad.leftChild=null;
+			}
+			pivote.rightChild=gravedad;
+			gravedad.parent=pivote;
+			height(gravedad);
 		}
-		pivote.parent=gravedad.parent;
-		if (pivote.rightChild!=null) {
-			gravedad.leftChild=pivote.rightChild;
-			pivote.rightChild.parent=gravedad;
-		} else {
-			gravedad.leftChild=null;
-		}
-		pivote.rightChild=gravedad;
-		gravedad.parent=pivote;
-		height(gravedad);
 	}
 	public void rotateLeft(int gravity) {
 		NodeTree gravedad=find(gravity,root);
-		NodeTree pivote = gravedad.rightChild;		
-		if (gravedad==gravedad.parent.leftChild) {
-			gravedad.parent.leftChild=pivote;
-		} else {
-			gravedad.parent.rightChild=pivote;
+		NodeTree pivote = gravedad.rightChild;
+		if(gravedad.parent != null) {
+			if (gravedad==gravedad.parent.leftChild) {
+				gravedad.parent.leftChild=pivote;
+			} else {
+				gravedad.parent.rightChild=pivote;
+			}
+			pivote.parent=gravedad.parent;
+			if (pivote.leftChild!=null) {
+				gravedad.rightChild=pivote.leftChild;
+				pivote.leftChild.parent=gravedad;
+			} else {
+				gravedad.rightChild=null;
+			}
+			pivote.leftChild=gravedad;
+			gravedad.parent=pivote;
+			height(gravedad);
 		}
-		pivote.parent=gravedad.parent;
-		if (pivote.leftChild!=null) {
-			gravedad.rightChild=pivote.leftChild;
-			pivote.leftChild.parent=gravedad;
-		} else {
-			gravedad.rightChild=null;
-		}
-		pivote.leftChild=gravedad;
-		gravedad.parent=pivote;
-		height(gravedad);
+		
 	}
 	public void rotateLeftRight(int a) {
 		NodeTree arriba=find(a,root);

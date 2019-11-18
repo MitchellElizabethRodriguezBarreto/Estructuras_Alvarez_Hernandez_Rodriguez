@@ -37,8 +37,11 @@ public class Main {
 		BinarySearchTree tree = new BinarySearchTree();
 		User<int[]> reserva = new User<int[]>();
 		
-		int iteraciones = 1000000;
+		int iteraciones = 100000;
 		int[] arrayData = new int[4];
+		
+		//tree.insert(54635946);
+		//tree.insert(79443549);
 		
 		Time mytime = new Time();
 		mytime.initTime();
@@ -51,6 +54,7 @@ public class Main {
 			int[] array = new int[4];
 			
 			//tree.PushBack(ID);
+			tree.insert(ID);
 			
 			array[0]=city;
 			array[1]=hour;
@@ -69,15 +73,17 @@ public class Main {
 		int alea = rnd.nextInt(1555555555);
 		System.out.println(alea);
 		
-		mytime.initTime();
-		//tree.PoPBack();
+		/*mytime.initTime();
+		tree.PoPBack();
 		mytime.finishTime();
 		mytime.getTime();
 		
 		mytime.initTime();
 		reserva.delete(arrayData);
 		mytime.finishTime();	
-		mytime.getTime();		
+		mytime.getTime();//	*/
+		
+//tree.inOrder(tree.root);
 		
 //		tree.inOrder(tree.getRoot());
 //		tree.getRoot().displayNode();
