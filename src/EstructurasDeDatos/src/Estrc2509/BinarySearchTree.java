@@ -34,6 +34,58 @@ public class BinarySearchTree {
 		}
 		return l;
 	}*/
+	public NodeTree find(double key, NodeTree root) {
+		NodeTree refNode = root;
+		
+		if(empty()) {
+			return null;
+		}
+		else if(key < refNode.key && refNode.leftChild != null) {
+			refNode = refNode.leftChild;
+			if(key == refNode.key) {
+			}
+			else {
+				refNode = find(key,refNode);
+			}
+		}
+		else if(key > refNode.key && refNode.rightChild != null) {
+			refNode = refNode.rightChild;
+			if (key == refNode.key) {				
+			}
+			else {
+				refNode = find(key,refNode);
+			}
+		}
+		return refNode;
+	}
+	public NodeTree next(NodeTree Node) {
+		NodeTree nextNode = Node;
+		
+		if(Node == this.root | this.root == null) {
+			nextNode = null; 
+		}
+		if(Node.rightChild == null) {
+			nextNode = rightAncestor(Node);
+		}
+		else {
+			nextNode = leftDescendant(Node.rightChild);
+		}
+		return nextNode;
+	}
+	
+	public NodeTree leftDescendant(NodeTree Node) {
+		while(Node.leftChild != null) {
+			Node = Node.leftChild;
+		}			
+		return Node;
+	}
+	public NodeTree rightAncestor (NodeTree n) {
+		if (n.key<n.parent.key) {
+			return n.parent;
+		} else {
+			return rightAncestor(n.parent);
+		}
+	}
 	
 	public NodeTree rightDescendant (NodeTree n) {
 		if (n.rightChild==null) {
@@ -42,7 +94,26 @@ public class BinarySearchTree {
 			return n.rightChild;
 		}
 	}
+	public boolean empty() {
+		if(this.root == null) {
+			//System.out.println("El árbol está vacía");
+			return true;
+		}
+		else {
+			//System.out.println("El árbol no está vacía");
+			return false;
+		}
+	}	
 
+	public void inOrder(NodeTree root) {
+		if(root==null) {
+			return;
+		} else {
+			inOrder(root.leftChild);
+			System.out.println(root.key+" L "+root.heightL+" R "+root.heightR);
+			inOrder(root.rightChild);
+		}
+	}
 
 	public void preOrder(NodeTree root) {
 		if(root==null) {
@@ -63,7 +134,32 @@ public class BinarySearchTree {
 			System.out.println(root.key+" L "+root.heightL+" R "+root.heightR);
 		}
 	}
-
+	public void insert(int key) {
+		int heightR=0;
+		int heightL=0;
+		NodeTree newNode = new NodeTree (key,heightR,heightL);		
+		NodeTree parentNode = null;
+		if(empty()) {
+			this.root = newNode;
+			parentNode = null;
+		} else {
+			parentNode = find(key, this.root);
+			//System.out.println("padre: " + parentNode.key);
+			if(key < parentNode.key && parentNode.leftChild == null) {				
+				parentNode.leftChild = newNode;
+				newNode.parent = parentNode;
+				newNode.leftChild = null;
+				newNode.rightChild = null;
+				height(parentNode);
+			} else if(key > parentNode.key && parentNode.rightChild == null) {
+				parentNode.rightChild = newNode;
+				newNode.parent = parentNode;
+				newNode.leftChild = null;
+				newNode.rightChild = null;
+				height(parentNode);
+			}
+		}
+	}
 	public void delete(int key) {
 		NodeTree oldNode = find(key, this.root);
 		NodeTree newNode = next(oldNode);
@@ -168,6 +264,25 @@ public class BinarySearchTree {
 		gravedad.parent=pivote;
 		height(gravedad);
 	}
+	public void rotateLeft(int gravity) {
+		NodeTree gravedad=find(gravity,root);
+		NodeTree pivote = gravedad.rightChild;		
+		if (gravedad==gravedad.parent.leftChild) {
+			gravedad.parent.leftChild=pivote;
+		} else {
+			gravedad.parent.rightChild=pivote;
+		}
+		pivote.parent=gravedad.parent;
+		if (pivote.leftChild!=null) {
+			gravedad.rightChild=pivote.leftChild;
+			pivote.leftChild.parent=gravedad;
+		} else {
+			gravedad.rightChild=null;
+		}
+		pivote.leftChild=gravedad;
+		gravedad.parent=pivote;
+		height(gravedad);
+	}
 	public void rotateLeftRight(int a) {
 		NodeTree arriba=find(a,root);
 		NodeTree abajo=arriba.rightChild;
@@ -187,6 +302,26 @@ public class BinarySearchTree {
 		arriba.parent=abajo;
 		height(arriba);
 		//rotateRight(abajo.parent.key);
+	}
+	public void rotateRightLeft(int a) {
+		NodeTree arriba=find(a,root);
+		NodeTree abajo=arriba.leftChild;
+		if (arriba==arriba.parent.leftChild) {
+			arriba.parent.leftChild=abajo;
+		} else {
+			arriba.parent.rightChild=abajo;
+		}
+		abajo.parent=arriba.parent;
+		if (abajo.rightChild!=null) {
+			arriba.leftChild=abajo.rightChild;
+			abajo.rightChild.parent=arriba;
+		} else {
+			arriba.leftChild=null;
+		}
+		abajo.rightChild=arriba;
+		arriba.parent=abajo;
+		height(arriba);
+		//rotateLeft(abajo.parent.key);
 	}
 	public void rebalance(int n){
 		NodeTree N=find(n,this.root);

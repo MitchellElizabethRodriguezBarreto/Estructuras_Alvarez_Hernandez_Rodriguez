@@ -5,6 +5,7 @@ import java.util.Random;
 
 import Estrc2509.MyArrayList;
 import Estrc2509.Tree;
+import Estrc2509.BinarySearchTree;
 import Estrc2509.DoubleLinkedList;
 
 public class Main {
@@ -33,7 +34,7 @@ public class Main {
 	public static void main(String[] args) {
 		Random rnd= new Random();
 		
-		DoubleLinkedList<Integer> tree = new DoubleLinkedList<Integer>();
+		BinarySearchTree tree = new BinarySearchTree();
 		User<int[]> reserva = new User<int[]>();
 		
 		int iteraciones = 1000000;
@@ -49,7 +50,7 @@ public class Main {
 			
 			int[] array = new int[4];
 			
-			tree.PushBack(ID);
+			//tree.PushBack(ID);
 			
 			array[0]=city;
 			array[1]=hour;
@@ -69,7 +70,7 @@ public class Main {
 		System.out.println(alea);
 		
 		mytime.initTime();
-		tree.PoPBack();
+		//tree.PoPBack();
 		mytime.finishTime();
 		mytime.getTime();
 		
