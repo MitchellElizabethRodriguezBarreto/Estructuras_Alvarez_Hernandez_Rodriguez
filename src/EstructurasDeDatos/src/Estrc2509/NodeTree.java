@@ -2,6 +2,7 @@ package Estrc2509;
 
 public class NodeTree {
 	//Declaracion de atributos
+	
 	int key;
 	NodeTree parent;
 	NodeTree leftChild;
@@ -15,6 +16,7 @@ public class NodeTree {
 	}
    
  	//Metodos getter and setters
+	
 	public int getKey() {
 		return key;
 	}
@@ -53,6 +55,7 @@ public class NodeTree {
 	}
 	
     //Metodo toString
+	
 	public String toString(){
 		String s=" "+key+" ";
 		return s;
