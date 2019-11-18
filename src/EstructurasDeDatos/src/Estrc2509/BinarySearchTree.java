@@ -1,7 +1,7 @@
 package Estrc2509;
 
 public class BinarySearchTree {
-	//Declaración de atributos
+	//Declaracion de atributos
 	public NodeTree root;
   
 	//Constructor sin parametros
@@ -22,13 +22,6 @@ public class BinarySearchTree {
 		}
 	}
 	*/
-	public NodeTree rightDescendant (NodeTree n) {
-		if (n.rightChild==null) {
-			return n;
-		} else {
-			return n.rightChild;
-		}
-	}
 	//Falta hacer la funcion Append que es unir nodos para poder hacer la busqueda
 	/*public NodeTree rangeSearch(int x, int y, NodeTree root) {
 		NodeTree l = null;
@@ -41,6 +34,16 @@ public class BinarySearchTree {
 		}
 		return l;
 	}*/
+	
+	public NodeTree rightDescendant (NodeTree n) {
+		if (n.rightChild==null) {
+			return n;
+		} else {
+			return n.rightChild;
+		}
+	}
+
+
 	public void preOrder(NodeTree root) {
 		if(root==null) {
 			return;
