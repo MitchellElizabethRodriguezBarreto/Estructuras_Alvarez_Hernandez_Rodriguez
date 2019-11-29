@@ -3,12 +3,12 @@ package Estrc2509;
 public class DynamicArray {
 
 	public int[] array;
-	private int n;
-	private int size;
+	protected int N;
+	protected int size;
 	
 	public DynamicArray(int n) {
 		array = new int[n];
-		this.n = n;
+		this.N = n;
 		this.size = 0;
 	}
 
@@ -18,7 +18,7 @@ public class DynamicArray {
 			return;
 		}
 		for(int i = k; i <= this.size; i++) {
-			if(i == n-1) {
+			if(i == N-1) {
 				this.array[i] = 0;
 			}
 			else {
@@ -26,8 +26,8 @@ public class DynamicArray {
 			}
 		}
 		
-		if(this.size == (n/2)-1) {
-			setNMiddle(n);
+		if(this.size == (N/2)-1) {
+			setNMiddle(N);
 		}
 		
 		this.size--;
@@ -35,8 +35,8 @@ public class DynamicArray {
 	
 	public void add(int kn) {
 //		System.out.println(this.n + " " + this.size);
-		if(this.size > this.n-1) {
-			setNDouble(n);
+		if(this.size > this.N-1) {
+			setNDouble(N);
 		}
 //		System.out.println(this.n + " " + this.size);
 		array[this.size] = kn;
@@ -45,11 +45,11 @@ public class DynamicArray {
 	
 	
 	public int getN() {
-		return n;
+		return N;
 	}
 
 	public void setNMiddle(int n) {
-		this.n = n/2;
+		this.N = n/2;
 		int[] newArray = new int[n];
 		for(int i = 0; i<(this.size); i++) {
 			newArray[i] = this.array[i];
@@ -57,8 +57,8 @@ public class DynamicArray {
 		this.array = newArray;
 	}
 	public void setNDouble(int n) {
-		this.n = n*2;
-		int newArray[] = new int[this.n];
+		this.N = n*2;
+		int newArray[] = new int[this.N];
 		for(int i = 0; i<(this.size); i++) {
 			newArray[i] = this.array[i];
 		}
