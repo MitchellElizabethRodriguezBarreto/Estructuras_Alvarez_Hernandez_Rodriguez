@@ -6,9 +6,9 @@ public class DoubleLinkedList<T> {
 	DoubleNode<T> tail = null;
 	
 	public DoubleLinkedList() {
-		
+		this.head = null;
+		this.tail = null;
 	}
-	
 	
 	public void PushFront(T key) {
 		DoubleNode<T> node2 = new DoubleNode<>(key);

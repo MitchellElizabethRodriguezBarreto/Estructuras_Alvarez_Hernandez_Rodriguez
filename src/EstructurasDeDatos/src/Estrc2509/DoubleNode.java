@@ -7,6 +7,10 @@ public class DoubleNode<T> {
 	private DoubleNode<T> prev;
 	
 	
+	public DoubleNode() {
+		
+	}
+	
 	public DoubleNode(T key) {
 		this.key = key;
 		this.next = null;
