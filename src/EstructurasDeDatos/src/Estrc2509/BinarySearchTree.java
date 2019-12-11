@@ -8,32 +8,7 @@ public class BinarySearchTree {
 	public BinarySearchTree(){
 	root=null;
 	}
-	/*
-	public NodeTree find (int key, NodeTree root) {
-		if (root.key==key) {
-			return root;
-		} else if (root.key>key) {
-			if (root.leftChild!=null) {
-				return find(key, root.leftChild);
-			}
-			return root;
-		} else {
-			return find(key, root.rightChild);
-		}
-	}
-	*/
-	//Falta hacer la funcion Append que es unir nodos para poder hacer la busqueda
-	/*public NodeTree rangeSearch(int x, int y, NodeTree root) {
-		NodeTree l = null;
-		NodeTree n = find(x,root);
-		while (n.key<=y) {
-			if (n.key>=x) {
-				l=l.Append(n);
-			}
-			n=next(n);
-		}
-		return l;
-	}*/
+	
 	public NodeTree find(double key, NodeTree root) {
 		NodeTree refNode = root;
 		
@@ -58,6 +33,7 @@ public class BinarySearchTree {
 		}
 		return refNode;
 	}
+	
 	public NodeTree next(NodeTree Node) {
 		NodeTree nextNode = Node;
 		
@@ -79,6 +55,7 @@ public class BinarySearchTree {
 		}			
 		return Node;
 	}
+	
 	public NodeTree rightAncestor (NodeTree n) {
 		if (n.key<n.parent.key) {
 			return n.parent;
@@ -110,7 +87,7 @@ public class BinarySearchTree {
 			return;
 		} else {
 			inOrder(root.leftChild);
-			System.out.println(root.key+" L "+root.heightL+" R "+root.heightR);
+			System.out.println(root.key+" L "+root.heightL+" R "+root.heightR + " left " + root.leftChild  + " right " + root.rightChild);
 			inOrder(root.rightChild);
 		}
 	}
@@ -134,6 +111,25 @@ public class BinarySearchTree {
 			System.out.println(root.key+" L "+root.heightL+" R "+root.heightR);
 		}
 	}
+	
+	public NodeTree min () {
+		NodeTree minNode = this.root;
+		while(minNode.leftChild!=null) {
+			minNode=minNode.leftChild;
+		}
+		System.out.println(minNode.key);
+		return minNode;
+	}
+	
+	public NodeTree max () {
+		NodeTree maxNode = this.root;
+		while(maxNode.rightChild!=null) {
+			maxNode=maxNode.rightChild;
+		}
+		System.out.println(maxNode.key);
+		return maxNode;
+	}
+	
 	public void insert(int key) {
 		int heightR=0;
 		int heightL=0;
@@ -262,6 +258,19 @@ public class BinarySearchTree {
 			pivote.rightChild=gravedad;
 			gravedad.parent=pivote;
 			height(gravedad);
+		} else if(gravedad == this.root) {
+			
+			if (pivote.rightChild!=null) {
+				gravedad.leftChild=pivote.rightChild;
+				pivote.rightChild.parent=gravedad;
+			} else {
+				gravedad.leftChild=null;
+			}
+			pivote.parent=null;
+			this.root=pivote;
+			pivote.rightChild=gravedad;
+			gravedad.parent=pivote;
+			height(gravedad);
 		}
 	}
 	public void rotateLeft(int gravity) {
@@ -283,6 +292,21 @@ public class BinarySearchTree {
 			pivote.leftChild=gravedad;
 			gravedad.parent=pivote;
 			height(gravedad);
+		}
+		else if(gravedad == this.root){
+
+			if (pivote.leftChild!=null) {
+				gravedad.rightChild=pivote.leftChild;
+				pivote.leftChild.parent=gravedad;
+			} else {
+				gravedad.rightChild=null;
+			}
+
+			pivote.parent=null;
+			this.root=pivote;
+			pivote.leftChild=gravedad;
+			gravedad.parent=pivote;
+			height(gravedad);			
 		}
 		
 	}
@@ -331,11 +355,11 @@ public class BinarySearchTree {
 		if(N==null) {
 			return;
 		} else {
-			if(N.leftChild!=null) {
+			if(N.leftChild!=null) {				
 				rebalance(N.leftChild.key);
 			}
 			if(N.heightR>N.heightL+1) {
-				if(N.rightChild.heightR<N.rightChild.heightL) {
+				if(N.rightChild.heightR<N.rightChild.heightL) {	
 					rotateRightLeft(N.rightChild.key);
 				} else if (N.rightChild.heightR>N.rightChild.heightL){
 					rotateLeft(N.key);

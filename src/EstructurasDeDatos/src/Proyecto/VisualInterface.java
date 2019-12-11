@@ -42,7 +42,7 @@ public class VisualInterface{
 		locate1.insets = new Insets(10, 20, 10, 0);
 		first.add(labelName, locate1);
 		
-		JLabel labelDate = new JLabel("Fecha de salida:");
+		JLabel labelDate = new JLabel("Cédula");
 		GridBagConstraints locate2 = new GridBagConstraints();
 		locate2.gridx = 0;
 		locate2.gridy = 2;
@@ -58,13 +58,13 @@ public class VisualInterface{
 		locate3.weightx = 1.0;
 		first.add(space1, locate3);
 		
-		JLabel labeleMail = new JLabel("Correo:");
+		/*JLabel labeleMail = new JLabel("Correo:");
 		GridBagConstraints locate4 = new GridBagConstraints();
 		locate4.gridx = 3;
 		locate4.gridy = 1;
 		locate4.anchor = GridBagConstraints.WEST;
 		locate4.insets = new Insets(0, 0, 0, 20);
-		first.add(labeleMail, locate4);	
+		first.add(labeleMail, locate4);	*/
 		
 		JLabel phrase = new JLabel("Síguenos! Y prepárate para viajar con AeroUN");
 		GridBagConstraints locate5 = new GridBagConstraints();
@@ -92,18 +92,18 @@ public class VisualInterface{
 		locate7.anchor = GridBagConstraints.WEST;
 		first.add(date, locate7);		
 			
-		JTextField eMail = new JTextField(10);
+		/*JTextField eMail = new JTextField(10);
 		GridBagConstraints locate8 = new GridBagConstraints();
 		locate8.gridx = 4;
 		locate8.gridy = 1;
 		locate8.anchor = GridBagConstraints.WEST;
 		locate8.insets = new Insets(0, 0, 0, 20);
-		first.add(eMail, locate8);	
+		first.add(eMail, locate8);	*/
 		
 		// Listas desplegables -------------------------------------------------------------
 		
 		JComboBox<String[]> origin = new JComboBox<String[]>();
-		String[] orig = new String[]{"Origen","Barranquilla","Bogotá","Bucaramanga","Cali","Cartagena","Cúcuta","Medellín","Montería","San Andrés","Santa Marta","Villavicencio"};
+		String[] orig = new String[]{"Origen","Barranquilla","Bogotá","Bucaramanga","Cali","Cartagena","Cúcuta","Medellín","Montería","San Andrés","Santa Marta"};
 		origin.setModel(new DefaultComboBoxModel(orig));
 		
 		GridBagConstraints locate9 = new GridBagConstraints();
@@ -127,6 +127,17 @@ public class VisualInterface{
 		// Botones -------------------------------------------------------------
 		
 		JButton labelReservations = new JButton("Ver reservas");
+		
+		
+		labelReservations.addActionListener(new AbstractAction(){ 
+			 public void actionPerformed(ActionEvent e){ 
+				 /*frame.setVisible(false); 
+				 frame.dispose(); */
+				 first.setVisible(false);
+				 ThirdWindow();
+				 //frame.setVisible(false);				 
+			 } 
+			});
 		GridBagConstraints locate11 = new GridBagConstraints();
 		locate11.gridx = 4;
 		locate11.gridy = 2;
@@ -141,7 +152,7 @@ public class VisualInterface{
 				 frame.dispose(); */
 				 System.out.println("Nombre: " + name.getText());
 				 System.out.println("Nombre: " + date.getText());
-				 System.out.println("Nombre: " + eMail.getText());
+				 //System.out.println("Nombre: " + eMail.getText());
 				 System.out.println("Nombre: " + origin.getSelectedItem());
 				 System.out.println("Nombre: " + destination.getSelectedItem());
 				 first.setVisible(false);
@@ -188,7 +199,7 @@ public class VisualInterface{
   	    second.add(labelName, locate1);
   	   
   	    JComboBox<String[]> origin = new JComboBox<String[]>();
-  	    String[] orig = new String[]{"Precio", "Hora", "Disponibilidad"};
+  	    String[] orig = new String[]{"Temprano", "Tarde"};
   	    origin.setModel(new DefaultComboBoxModel(orig));
   	    
   	    GridBagConstraints locate2 = new GridBagConstraints();
