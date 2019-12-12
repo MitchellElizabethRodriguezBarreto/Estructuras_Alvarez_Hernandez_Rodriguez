@@ -1,12 +1,16 @@
 package Proyecto;
 
 import javax.swing.*;
+
 import java.awt.*;
 import java.awt.event.*;
 
 public class VisualInterface{
 	JFrame frame = new JFrame("AeroUN");
 	Container distribution = frame.getContentPane();
+	
+	Information info = new Information();
+	//public String nameKey = "";
 	
 	public VisualInterface() {
 		frame.setSize(500,450);
@@ -16,7 +20,7 @@ public class VisualInterface{
 	// Primera ventana ------------------------------------------------------------------------------------------------------------------
 	
 	public void FirstWindow(){
-		
+	
 		JPanel first = new JPanel();
 		first.setLayout(new GridBagLayout());
 		//distribution.setLayout(new GridBagLayout());
@@ -85,12 +89,12 @@ public class VisualInterface{
 		locate6.anchor = GridBagConstraints.WEST;
 		first.add(name, locate6);
 
-		JTextField date = new JTextField(10);
+		JTextField id = new JTextField(10);
 		GridBagConstraints locate7 = new GridBagConstraints();
 		locate7.gridx = 2;
 		locate7.gridy = 2;
 		locate7.anchor = GridBagConstraints.WEST;
-		first.add(date, locate7);		
+		first.add(id, locate7);		
 			
 		/*JTextField eMail = new JTextField(10);
 		GridBagConstraints locate8 = new GridBagConstraints();
@@ -145,22 +149,23 @@ public class VisualInterface{
 		first.add(labelReservations, locate11);
 		
 		JButton searchFlight = new JButton("Buscar");
-	
+		
 		searchFlight.addActionListener(new AbstractAction(){ 
 			 public void actionPerformed(ActionEvent e){ 
 				 /*frame.setVisible(false); 
 				 frame.dispose(); */
-				 System.out.println("Nombre: " + name.getText());
-				 System.out.println("Nombre: " + date.getText());
-				 //System.out.println("Nombre: " + eMail.getText());
-				 System.out.println("Nombre: " + origin.getSelectedItem());
-				 System.out.println("Nombre: " + destination.getSelectedItem());
+				 //nameKey = name.getText();
+				 // System.out.println("Nombre: " + name.getText());
+				 // System.out.println("Cédula: " + id.getText());
+				 // System.out.println("Nombre: " + eMail.getText());
+				 // System.out.println("Origen: " + origin.getSelectedItem());
+				 // System.out.println("Destino: " + destination.getSelectedItem());
 				 first.setVisible(false);
 				 SecondWindow();
 				 //frame.setVisible(false);				 
 			 } 
 			});
-			
+		
 		GridBagConstraints locate12 = new GridBagConstraints();
 		locate12.gridx = 4;
 		locate12.gridy = 4;
@@ -176,6 +181,7 @@ public class VisualInterface{
 	
 	// Segunda ventana ------------------------------------------------------------------------------------------------------------------
 	
+	@SuppressWarnings("null")
 	public void SecondWindow(){ 
 		
 		JPanel second = new JPanel();
@@ -276,12 +282,14 @@ public class VisualInterface{
         second.add(costo, locate10);
      
         // Botones -------------------------------------------------------------
-     
+
         JButton labelReservations = new JButton("Reservar");
         labelReservations.addActionListener(new AbstractAction(){ 
 			 public void actionPerformed(ActionEvent e){
-				 System.out.println("Nombre: " + origin.getSelectedItem());
-				 System.out.println("Nombre: " + number.getSelectedItem());
+				 //String prueba = (String) number.getSelectedItem();
+				 System.out.println("Filtro: " + origin.getSelectedItem());
+				 // System.out.println("Pasajeros: " + number.getSelectedItem());
+				 info.filterHour((String) origin.getSelectedItem());
 				 second.setVisible(false);
 				 ThirdWindow();
 			 } 

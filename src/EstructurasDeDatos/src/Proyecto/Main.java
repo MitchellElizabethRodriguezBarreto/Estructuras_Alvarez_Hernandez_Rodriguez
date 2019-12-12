@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 import java.util.Random;
 
 import Estrc2509.MyArrayList;
+import Estrc2509.NodeTree;
 import Estrc2509.Tree;
 import Estrc2509.BinarySearchTree;
 import Estrc2509.DoubleLinkedList;
@@ -35,16 +36,19 @@ public class Main {
 		Random rnd= new Random();
 		
 		BinarySearchTree tree = new BinarySearchTree();
-		User<int[]> reserva = new User<int[]>();
 		
-		int iteraciones = 10;
-		int[] arrayData = new int[4];
+		//Information passenger = new Information();	
+		//passenger.FilterHour("Temprano");
+		// User<int[]> reserva = new User<int[]>();
+		
+		 int iteraciones = 10;
+		 //int[] arrayData = new int[4];
 		
 		//tree.insert(54635946);
 		//tree.insert(79443549);
 		
-		Time mytime = new Time();
-		mytime.initTime();
+		/*Time mytime = new Time();
+		mytime.initTime();*/
 		for(int i = 0; i<iteraciones; i++) {
 			int ID = i;
 			int city= 3;
@@ -67,10 +71,12 @@ public class Main {
 				arrayData = array;
 			}*/
 		}
-		mytime.finishTime();
-		mytime.getTime();
-		tree.min();
-		tree.max();
+		/*mytime.finishTime();
+		mytime.getTime();*/
+		
+		//tree.max().getKey();
+		//System.out.println(tree.min().getKey());
+		//System.out.println(tree.max().getKey());
 		
 		//int alea = rnd.nextInt(1555555555);
 		//System.out.println(alea);
@@ -91,7 +97,8 @@ public class Main {
 //		tree.getRoot().displayNode();
 		
 		VisualInterface window = new VisualInterface();
-		window.FirstWindow();
+		window.FirstWindow();			
+		
 	}
 	
 }

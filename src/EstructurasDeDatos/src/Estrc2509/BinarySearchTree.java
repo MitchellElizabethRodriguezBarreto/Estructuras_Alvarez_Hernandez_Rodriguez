@@ -87,7 +87,8 @@ public class BinarySearchTree {
 			return;
 		} else {
 			inOrder(root.leftChild);
-			System.out.println(root.key+" L "+root.heightL+" R "+root.heightR + " left " + root.leftChild  + " right " + root.rightChild);
+			// System.out.println(root.key+" L "+root.heightL+" R "+root.heightR + " left " + root.leftChild  + " right " + root.rightChild);
+			System.out.println(root.key+" L "+root.heightL+" R "+root.heightR);
 			inOrder(root.rightChild);
 		}
 	}
@@ -117,7 +118,7 @@ public class BinarySearchTree {
 		while(minNode.leftChild!=null) {
 			minNode=minNode.leftChild;
 		}
-		System.out.println(minNode.key);
+		//System.out.println(minNode.key);
 		return minNode;
 	}
 	
@@ -126,7 +127,7 @@ public class BinarySearchTree {
 		while(maxNode.rightChild!=null) {
 			maxNode=maxNode.rightChild;
 		}
-		System.out.println(maxNode.key);
+		//System.out.println(maxNode.key);
 		return maxNode;
 	}
 	
