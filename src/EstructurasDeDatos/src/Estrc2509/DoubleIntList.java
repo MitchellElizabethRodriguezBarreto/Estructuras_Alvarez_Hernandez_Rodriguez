@@ -45,7 +45,6 @@ public class DoubleIntList {
 		}
 	}
 	
-	
 	public void PoPBack() {
 		if(this.head ==null) {
 			System.out.println("Error!! Empty List");
@@ -61,7 +60,6 @@ public class DoubleIntList {
 			this.tail = this.tail.getPrev();
 		}
 	}
-	
 	
 	public DoubleNodeNumeric FindByKey(int key){
 		DoubleNodeNumeric dn = null;

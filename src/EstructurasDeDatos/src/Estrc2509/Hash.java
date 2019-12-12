@@ -32,7 +32,7 @@ public class Hash {
 			return ID;
 		}
 		String IDstring = String.valueOf(ID);
-		IDstring = IDstring.substring(2);
+		IDstring = IDstring.substring(1);
 		if(IDstring.equals("")) {
 			return ID;
 		}
@@ -69,6 +69,7 @@ public class Hash {
 	
 	public void add(int ID) {
 		if(find(ID) == null) {
+			System.out.println(ID);
 			int hash = getHash(ID);
 			if(array[hash] == null) {
 				array[hash] = new ListNumeric();
@@ -78,7 +79,7 @@ public class Hash {
 //		array[m].DisplayList();			
 		}
 		else {
-			System.out.println("el ID ya existe");
+//			System.out.println("el ID ya existe");
 		}
 	}
 	
@@ -110,11 +111,11 @@ public class Hash {
 	
 	public static void main(String[] args) {
 		
-		int hashLength = 100;
+		int hashLength = 1000;
 		
 		Hash myHash = new Hash(hashLength);
-		
-		myHash.display();
+				
+//		myHash.display();
 
 		Random rnd= new Random();
 				
@@ -132,6 +133,9 @@ public class Hash {
 		}
 		
 			myHash.display();
+			System.out.println();
+			System.out.println(getHash(391));
+			
 		
 	}
 
