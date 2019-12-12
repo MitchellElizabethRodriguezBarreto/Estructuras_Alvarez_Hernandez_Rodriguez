@@ -5,11 +5,7 @@ public class DoubleNode<T> {
 	private T key;
 	private DoubleNode<T> next;
 	private DoubleNode<T> prev;
-	
-	
-	public DoubleNode() {
-		
-	}
+
 	
 	public DoubleNode(T key) {
 		this.key = key;

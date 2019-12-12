@@ -1,5 +1,7 @@
 package Estrc2509;
 
+import java.util.Random;
+
 public class Hash {
 	
 	int n;
@@ -7,7 +9,14 @@ public class Hash {
 	
 	
 	public Hash(int n) {
-		this.n = n;
+		if(n < 10) {
+			this.n = n;
+		}else {
+			String IDstring = String.valueOf(n);
+			IDstring = IDstring.substring(0, IDstring.length()-1);
+			n = Integer.parseInt(IDstring);
+			this.n = n;
+		}
 		array = new ListNumeric[n];
 		
 		//Es necesario inicializar para poder usar correctamente el code
@@ -18,6 +27,18 @@ public class Hash {
 //		System.out.println(array.length);
 	}
 
+	public static int getHash(int ID) {
+		if(ID < 10) {
+			return ID;
+		}
+		String IDstring = String.valueOf(ID);
+		IDstring = IDstring.substring(2);
+		if(IDstring.equals("")) {
+			return ID;
+		}
+		return Integer.parseInt(IDstring);
+	}
+	
 	public void display() {
 		for(int i = 0; i < n ; i++) {
 			System.out.println("Index " + i + ":");
@@ -25,24 +46,93 @@ public class Hash {
 		}
 	}
 	
-	public void add(int n, int m) {
-		if(array[m] == null) {
-			array[m] = new ListNumeric();
-		}
-//		System.out.println("array: " + m + "  N = " + n);
-		array[m].PushBack(n);
-//		array[m].DisplayList();
-	}
-	public static void main(String[] args) {
-		Hash myHash = new Hash(10);
-//		myHash.display();
-		myHash.add(7, 9);
-		myHash.add(5, 3);
-		myHash.add(2, 9);
-		myHash.add(5, 4);
-		myHash.add(6, 2);
+	public void displayInfo(int ID) {
 
+		int hash = getHash(ID);
+		DoubleNodeNumeric p = array[hash].head;
+		
+		if(p == null) {
+			System.out.println();
+			System.out.println("lista vacia");
+			return;
+		}
+		while (p != null) {
+			if(p.getKey() == ID) {
+				p.displayArray();
+				return;
+			}else {
+				p = p.getNext();
+			}
+		}
+		System.out.println("El ID no existe en la tabla hash");
+	}
+	
+	public void add(int ID) {
+		if(find(ID) == null) {
+			int hash = getHash(ID);
+			if(array[hash] == null) {
+				array[hash] = new ListNumeric();
+			}
+//		System.out.println("array: " + m + "  N = " + n);
+			array[hash].PushBack(ID);
+//		array[m].DisplayList();			
+		}
+		else {
+			System.out.println("el ID ya existe");
+		}
+	}
+	
+	public void setArrayInfo(int ID, int[] array) {
+
+		int hash = getHash(ID);
+		
+		DoubleNodeNumeric node = find(ID);
+		if(node == null) {
+			System.out.println("El ID no existe");
+			return;
+		}else {
+			node.setArray(array);
+		}
+	}
+	
+	public DoubleNodeNumeric find(int ID) {
+
+		int hash = getHash(ID);
+		DoubleNodeNumeric p = array[hash].head;
+		while (p != null) {
+			if(p.getKey() == ID) {
+				return p;
+			}
+			p = p.getNext();
+		}
+		return null;
+	}
+	
+	public static void main(String[] args) {
+		
+		int hashLength = 100;
+		
+		Hash myHash = new Hash(hashLength);
+		
 		myHash.display();
+
+		Random rnd= new Random();
+				
+		for (int i = 0; i < hashLength; i++) {
+			int ID = rnd.nextInt(hashLength);
+			ID = (int)Integer.toUnsignedLong(ID);
+			myHash.add(ID);
+			
+			int array[] = new int[3];
+			array[0] = rnd.nextInt(hashLength);
+			array[1] = rnd.nextInt(hashLength);
+			array[2] = rnd.nextInt(hashLength);
+
+			myHash.setArrayInfo(ID, array);
+		}
+		
+			myHash.display();
+		
 	}
 
 }
