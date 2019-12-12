@@ -46,6 +46,17 @@ public class Hash {
 		}
 	}
 	
+	public void displayIndex(int n) {
+		DoubleNodeNumeric p = array[n].head;
+		if(p == null) {
+			System.out.println("Null");
+		}
+		while (p != null) {
+			System.out.println(p.getKey());
+			p = p.getNext();
+		}
+	}
+	
 	public void displayInfo(int ID) {
 
 		int hash = getHash(ID);
@@ -69,7 +80,7 @@ public class Hash {
 	
 	public void add(int ID) {
 		if(find(ID) == null) {
-			System.out.println(ID);
+//			System.out.println(ID);
 			int hash = getHash(ID);
 			if(array[hash] == null) {
 				array[hash] = new ListNumeric();
@@ -111,7 +122,7 @@ public class Hash {
 	
 	public static void main(String[] args) {
 		
-		int hashLength = 1000;
+		int hashLength = 1000000;
 		
 		Hash myHash = new Hash(hashLength);
 				
@@ -134,8 +145,10 @@ public class Hash {
 		
 			myHash.display();
 			System.out.println();
-			System.out.println(getHash(391));
 			
+			myHash.displayIndex(1);
+			System.out.println();
+			myHash.find(41).displayArray();
 		
 	}
 
