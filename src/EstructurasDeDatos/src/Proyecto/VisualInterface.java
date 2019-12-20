@@ -10,11 +10,13 @@ public class VisualInterface{
 	Container distribution = frame.getContentPane();
 	
 	Information info = new Information();
+	String city;
 	//public String nameKey = "";
 	
-	public VisualInterface() {
+	public VisualInterface(Information infoFly) {
 		frame.setSize(500,450);
   		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);  		
+  		info = infoFly;
 	}
 	
 	// Primera ventana ------------------------------------------------------------------------------------------------------------------
@@ -159,7 +161,8 @@ public class VisualInterface{
 				 // System.out.println("Cédula: " + id.getText());
 				 // System.out.println("Nombre: " + eMail.getText());
 				 // System.out.println("Origen: " + origin.getSelectedItem());
-				 // System.out.println("Destino: " + destination.getSelectedItem());
+				 // System.out.println("Destino: " + destination.getSelectedItem());				
+				 city = (String)destination.getSelectedItem();
 				 first.setVisible(false);
 				 SecondWindow();
 				 //frame.setVisible(false);				 
@@ -289,7 +292,7 @@ public class VisualInterface{
 				 //String prueba = (String) number.getSelectedItem();
 				 System.out.println("Filtro: " + origin.getSelectedItem());
 				 // System.out.println("Pasajeros: " + number.getSelectedItem());
-				 info.filterHour((String) origin.getSelectedItem());
+				 info.filterHour((String) origin.getSelectedItem(), city);
 				 second.setVisible(false);
 				 ThirdWindow();
 			 } 

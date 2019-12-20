@@ -37,6 +37,21 @@ public class Main {
 		
 		BinarySearchTree tree = new BinarySearchTree();
 		
+		/*Fly vueloPrueba1 = new Fly(2, 17, 30);
+		Fly vueloPrueba2 = new Fly(2, 10, 00);
+		Fly vueloPrueba3 = new Fly(2, 23, 59);*/
+		
+		/*NodeTreeFly nodoPrueba = new NodeTreeFly(vueloPrueba, 0, 0);
+		System.out.println(nodoPrueba.getKey());
+		System.out.println(nodoPrueba.getHour());*/
+		
+		/*BinarySearchTreeFly treePrueba = new BinarySearchTreeFly();
+		treePrueba.insert(vueloPrueba3);
+		treePrueba.insert(vueloPrueba1);
+		treePrueba.insert(vueloPrueba2);
+		
+		treePrueba.inOrder(treePrueba.root);*/
+		
 		//Information passenger = new Information();	
 		//passenger.FilterHour("Temprano");
 		// User<int[]> reserva = new User<int[]>();
@@ -96,7 +111,10 @@ public class Main {
 //		tree.inOrder(tree.getRoot());
 //		tree.getRoot().displayNode();
 		
-		VisualInterface window = new VisualInterface();
+		Information info = new Information();
+		info.createFly();
+		
+		VisualInterface window = new VisualInterface(info);
 		window.FirstWindow();			
 		
 	}
