@@ -1,31 +1,33 @@
-package Estrc2509;
+package Proyecto;
 
-public class BinarySearchTree {
+import Estrc2509.NodeTree;
+
+public class BinarySearchTreeFly {
 	//Declaracion de atributos
-	public NodeTree root;
+	public NodeTreeFly root;
   
 	//Constructor sin parametros
-	public BinarySearchTree(){
+	public BinarySearchTreeFly(){
 	root=null;
 	}
 	
-	public NodeTree find(double key, NodeTree root) {
-		NodeTree refNode = root;
+	public NodeTreeFly find(int key, NodeTreeFly root) {
+		NodeTreeFly refNode = root;
 		
 		if(empty()) {
 			return null;
 		}
-		else if(key < refNode.key && refNode.leftChild != null) {
+		else if(key < refNode.getHour() && refNode.leftChild != null) {
 			refNode = refNode.leftChild;
-			if(key == refNode.key) {
+			if(key == refNode.getHour()) {
 			}
 			else {
 				refNode = find(key,refNode);
 			}
 		}
-		else if(key > refNode.key && refNode.rightChild != null) {
+		else if(key > refNode.getHour() && refNode.rightChild != null) {
 			refNode = refNode.rightChild;
-			if (key == refNode.key) {				
+			if (key == refNode.getHour()) {				
 			}
 			else {
 				refNode = find(key,refNode);
@@ -34,8 +36,8 @@ public class BinarySearchTree {
 		return refNode;
 	}
 	
-	public NodeTree next(NodeTree Node) {
-		NodeTree nextNode = Node;
+	public NodeTreeFly next(NodeTreeFly Node) {
+		NodeTreeFly nextNode = Node;
 		
 		if(Node == this.root | this.root == null) {
 			nextNode = null; 
@@ -49,22 +51,22 @@ public class BinarySearchTree {
 		return nextNode;
 	}
 	
-	public NodeTree leftDescendant(NodeTree Node) {
+	public NodeTreeFly leftDescendant(NodeTreeFly Node) {
 		while(Node.leftChild != null) {
 			Node = Node.leftChild;
 		}			
 		return Node;
 	}
 	
-	public NodeTree rightAncestor (NodeTree n) {
-		if (n.key<n.parent.key) {
+	public NodeTreeFly rightAncestor (NodeTreeFly n) {
+		if (n.getHour() < n.parent.getHour()) {
 			return n.parent;
 		} else {
 			return rightAncestor(n.parent);
 		}
 	}
 	
-	public NodeTree rightDescendant (NodeTree n) {
+	public NodeTreeFly rightDescendant (NodeTreeFly n) {
 		if (n.rightChild==null) {
 			return n;
 		} else {
@@ -82,39 +84,39 @@ public class BinarySearchTree {
 		}
 	}	
 
-	public void inOrder(NodeTree root) {
+	public void inOrder(NodeTreeFly root) {
 		if(root==null) {
 			return;
 		} else {
 			inOrder(root.leftChild);
 			// System.out.println(root.key+" L "+root.heightL+" R "+root.heightR + " left " + root.leftChild  + " right " + root.rightChild);
-			System.out.println(root.key+" L "+root.heightL+" R "+root.heightR);
+			System.out.println(root.key.getFly() +" L "+root.heightL+" R "+root.heightR);
 			inOrder(root.rightChild);
 		}
 	}
 
-	public void preOrder(NodeTree root) {
+	public void preOrder(NodeTreeFly root) {
 		if(root==null) {
 			return;
 		} else {
-			System.out.println(root.key+" L "+root.heightL+" R "+root.heightR);
+			System.out.println(root.key.getFly() +" L "+root.heightL+" R "+root.heightR);
 			preOrder(root.leftChild);
 			preOrder(root.rightChild);
 		}
 	}
 	
-	public void postOrder(NodeTree root) {
+	public void postOrder(NodeTreeFly root) {
 		if(root==null) {
 			return;
 		} else {
 			postOrder(root.leftChild);
 			postOrder(root.rightChild);
-			System.out.println(root.key+" L "+root.heightL+" R "+root.heightR);
+			System.out.println(root.key.getFly() +" L "+root.heightL+" R "+root.heightR);
 		}
 	}
 	
-	public NodeTree min () {
-		NodeTree minNode = this.root;
+	public NodeTreeFly min () {
+		NodeTreeFly minNode = this.root;
 		while(minNode.leftChild!=null) {
 			minNode=minNode.leftChild;
 		}
@@ -122,8 +124,8 @@ public class BinarySearchTree {
 		return minNode;
 	}
 	
-	public NodeTree max () {
-		NodeTree maxNode = this.root;
+	public NodeTreeFly max () {
+		NodeTreeFly maxNode = this.root;
 		while(maxNode.rightChild!=null) {
 			maxNode=maxNode.rightChild;
 		}
@@ -131,24 +133,24 @@ public class BinarySearchTree {
 		return maxNode;
 	}
 	
-	public void insert(int key) {
+	public void insert(Fly key) {
 		int heightR=0;
 		int heightL=0;
-		NodeTree newNode = new NodeTree (key,heightR,heightL);		
-		NodeTree parentNode = null;
+		NodeTreeFly newNode = new NodeTreeFly (key,heightR,heightL);		
+		NodeTreeFly parentNode = null;
 		if(empty()) {
 			this.root = newNode;
 			parentNode = null;
 		} else {
-			parentNode = find(key, this.root);
+			parentNode = find(key.getHour(), this.root);
 			//System.out.println("padre: " + parentNode.key);
-			if(key < parentNode.key && parentNode.leftChild == null) {				
+			if(key.getHour() < parentNode.getHour() && parentNode.leftChild == null) {				
 				parentNode.leftChild = newNode;
 				newNode.parent = parentNode;
 				newNode.leftChild = null;
 				newNode.rightChild = null;
 				height(parentNode);
-			} else if(key > parentNode.key && parentNode.rightChild == null) {
+			} else if(key.getHour() > parentNode.getHour() && parentNode.rightChild == null) {
 				parentNode.rightChild = newNode;
 				newNode.parent = parentNode;
 				newNode.leftChild = null;
@@ -157,13 +159,13 @@ public class BinarySearchTree {
 			}
 		}
 	}
-	public void delete(int key) {
-		NodeTree oldNode = find(key, this.root);
-		NodeTree newNode = next(oldNode);
+	public void delete(Fly key) {
+		NodeTreeFly oldNode = find(key.getHour(), this.root);
+		NodeTreeFly newNode = next(oldNode);
 		if(empty() | next(oldNode) == null) {
 			oldNode = null;
 		} else if(oldNode.leftChild==null&&oldNode.rightChild==null) {
-			if(key>oldNode.parent.key) {
+			if(key.getHour() > oldNode.parent.getHour()) {
 				oldNode.parent.rightChild=null;
 			} else {
 				oldNode.parent.leftChild=null;
@@ -176,7 +178,7 @@ public class BinarySearchTree {
 			} else {
 				newNode.parent.rightChild =null;
 			}
-			if(key > oldNode.parent.key) {
+			if(key.getHour() > oldNode.parent.getHour()) {
 				oldNode.parent.rightChild = newNode;
 				if(oldNode.rightChild!=null) {
 					oldNode.rightChild.parent = newNode;
@@ -190,7 +192,7 @@ public class BinarySearchTree {
 				}
 								
 				newNode.parent = oldNode.parent;
-			} else if(key < oldNode.parent.key) {
+			} else if(key.getHour() < oldNode.parent.getHour()) {
 				oldNode.parent.leftChild = newNode;
 				if(oldNode.rightChild!=null) {
 					oldNode.rightChild.parent = newNode;
@@ -211,7 +213,7 @@ public class BinarySearchTree {
 	}
 	
 	
-	public void height(NodeTree nodito) {
+	public void height(NodeTreeFly nodito) {
 		while(nodito!=null) {
 			if(nodito.rightChild==null) {
 				nodito.heightR=0;
@@ -235,14 +237,14 @@ public class BinarySearchTree {
 					nodito.heightL=LL+1;
 				}
 			}
-			rebalance(nodito.key);
+			rebalance(nodito.getHour());
 			nodito=nodito.parent;
 		}
 	}
 	//El nodo gravedad es el que esta DESBALANCEADO y es el que va a caer
 	public void rotateRight(int gravity) {
-		NodeTree gravedad=find(gravity,root);
-		NodeTree pivote = gravedad.leftChild;	
+		NodeTreeFly gravedad=find(gravity,root);
+		NodeTreeFly pivote = gravedad.leftChild;	
 		if(gravedad.parent != null) {
 			if (gravedad==gravedad.parent.leftChild) {
 				gravedad.parent.leftChild=pivote;
@@ -275,8 +277,8 @@ public class BinarySearchTree {
 		}
 	}
 	public void rotateLeft(int gravity) {
-		NodeTree gravedad=find(gravity,root);
-		NodeTree pivote = gravedad.rightChild;
+		NodeTreeFly gravedad=find(gravity,root);
+		NodeTreeFly pivote = gravedad.rightChild;
 		if(gravedad.parent != null) {
 			if (gravedad==gravedad.parent.leftChild) {
 				gravedad.parent.leftChild=pivote;
@@ -312,8 +314,8 @@ public class BinarySearchTree {
 		
 	}
 	public void rotateLeftRight(int a) {
-		NodeTree arriba=find(a,root);
-		NodeTree abajo=arriba.rightChild;
+		NodeTreeFly arriba=find(a,root);
+		NodeTreeFly abajo=arriba.rightChild;
 		if (arriba==arriba.parent.leftChild) {
 			arriba.parent.leftChild=abajo;
 		} else {
@@ -332,8 +334,8 @@ public class BinarySearchTree {
 		//rotateRight(abajo.parent.key);
 	}
 	public void rotateRightLeft(int a) {
-		NodeTree arriba=find(a,root);
-		NodeTree abajo=arriba.leftChild;
+		NodeTreeFly arriba=find(a,root);
+		NodeTreeFly abajo=arriba.leftChild;
 		if (arriba==arriba.parent.leftChild) {
 			arriba.parent.leftChild=abajo;
 		} else {
@@ -352,29 +354,30 @@ public class BinarySearchTree {
 		//rotateLeft(abajo.parent.key);
 	}
 	public void rebalance(int n){
-		NodeTree N=find(n,this.root);
+		NodeTreeFly N=find(n,this.root);
 		if(N==null) {
 			return;
 		} else {
 			if(N.leftChild!=null) {				
-				rebalance(N.leftChild.key);
+				rebalance(N.leftChild.getHour());
 			}
 			if(N.heightR>N.heightL+1) {
 				if(N.rightChild.heightR<N.rightChild.heightL) {	
-					rotateRightLeft(N.rightChild.key);
+					rotateRightLeft(N.rightChild.getHour());
 				} else if (N.rightChild.heightR>N.rightChild.heightL){
-					rotateLeft(N.key);
+					rotateLeft(N.getHour());
 				}
 			} else if (N.heightL>N.heightR+1) {
 				if(N.leftChild.heightL<N.leftChild.heightR) {
-					rotateLeftRight(N.leftChild.key);
+					rotateLeftRight(N.leftChild.getHour());
 				} else if (N.leftChild.heightL>N.leftChild.heightR) {
-					rotateRight(N.key);
+					rotateRight(N.getHour());
 				}
 			}
 			if(N.rightChild!=null) {
-				rebalance(N.rightChild.key);
+				rebalance(N.rightChild.getHour());
 			}
 		}
 	}
+
 }

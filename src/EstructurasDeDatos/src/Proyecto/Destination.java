@@ -31,7 +31,7 @@ public class Destination {
 	public static final int CUCUTA_PRICE 		= 390000;
 	
 	
-//	ciudad destino =v
+//	ciudad destino
 	private int city;
 	
 	public Destination(int city) {
