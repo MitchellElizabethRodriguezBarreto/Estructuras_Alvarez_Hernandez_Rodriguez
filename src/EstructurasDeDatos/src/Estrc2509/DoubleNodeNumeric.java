@@ -60,4 +60,8 @@ public class DoubleNodeNumeric {
 	public void setArray(int[] array) {
 		this.array = array;
 	}
+	
+	public int[] getArray() {
+		return this.array;
+	}
 }

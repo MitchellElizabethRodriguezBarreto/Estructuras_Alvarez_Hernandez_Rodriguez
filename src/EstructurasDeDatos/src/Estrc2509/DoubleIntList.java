@@ -157,21 +157,21 @@ public class DoubleIntList {
 		
 	}
 	
-	public void find(int k) {
+	public boolean find(int k) {
 		if(this.head == this.tail) {
-			System.out.println("Lista Vacia...");
-			return;
+			System.out.println(false);
+			return false;
 		}
 		DoubleNodeNumeric p=this.head;
 		while(p.getNext() != null) {
 			if(p.getKey() == k) {
-				System.out.println("Encontrado!");
-				return;
+				System.out.println(true);
+				return true;
 			}
 			p = p.getNext();
 		}
-		System.out.println("No encontrado.");
-		return;
+		System.out.println(false);
+		return false;
 	}
 	
 

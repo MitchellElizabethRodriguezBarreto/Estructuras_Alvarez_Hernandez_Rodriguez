@@ -90,7 +90,7 @@ public class Hash {
 //		array[m].DisplayList();			
 		}
 		else {
-//			System.out.println("el ID ya existe");
+			System.out.println("el ID ya existe");
 		}
 	}
 	
