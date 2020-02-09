@@ -96,6 +96,7 @@ public class VisualInterface{
 	
 	// Primera ventana ------------------------------------------------------------------------------------------------------------------
 	
+	
 	public void FirstWindow(){
 	
 		JPanel first = new JPanel();
@@ -115,13 +116,13 @@ public class VisualInterface{
 		locate0.gridwidth = 5;
 		first.add(aero, locate0);
 		
-		JLabel labelName = new JLabel("Nombre:");
-		GridBagConstraints locate1 = new GridBagConstraints();
-		locate1.gridx = 0;
-		locate1.gridy = 1;
-		locate1.anchor = GridBagConstraints.WEST;
-		locate1.insets = new Insets(10, 20, 10, 0);
-		first.add(labelName, locate1);
+//		JLabel labelName = new JLabel("Nombre:");
+//		GridBagConstraints locate1 = new GridBagConstraints();
+//		locate1.gridx = 0;
+//		locate1.gridy = 1;
+//		locate1.anchor = GridBagConstraints.WEST;
+//		locate1.insets = new Insets(10, 20, 10, 0);
+//		first.add(labelName, locate1);
 		
 		
 		JLabel labelDate = new JLabel("Cédula");
@@ -160,12 +161,12 @@ public class VisualInterface{
 		
 		// Cajas de texto -------------------------------------------------------------
 		
-		JTextField name = new JTextField(10);
-		GridBagConstraints locate6 = new GridBagConstraints();
-		locate6.gridx = 2;
-		locate6.gridy = 1;
-		locate6.anchor = GridBagConstraints.WEST;
-		first.add(name, locate6);
+//		JTextField name = new JTextField(10);
+//		GridBagConstraints locate6 = new GridBagConstraints();
+//		locate6.gridx = 2;
+//		locate6.gridy = 1;
+//		locate6.anchor = GridBagConstraints.WEST;
+//		first.add(name, locate6);
 
 		JTextField id = new JTextField(10);
 		GridBagConstraints locate7 = new GridBagConstraints();
@@ -227,7 +228,7 @@ public class VisualInterface{
 			 public void actionPerformed(ActionEvent e){ 
 				 /*frame.setVisible(false); 
 				 frame.dispose(); */
-				 String nameString=name.getText();
+//				 String nameString=name.getText();
 				 String idString=id.getText();
 				 int idInt = Integer.parseInt(idString);
 				 
@@ -236,6 +237,14 @@ public class VisualInterface{
 					 arrayInfo = hashTable.find(idInt).getArray();
 				 }
 				 else{
+					 
+					 /*
+					  * arrayInfo[0]--> Id
+					  * arrayInfo[1]--> city
+					  * arrayInfo[2]--> hora
+					  * arrayInfo[3]--> minutos
+					  * arrayInfo[4]--> silla
+					  */
 					 arrayInfo = new int[5];
 					 //id
 					 arrayInfo[0] = idInt;
@@ -249,7 +258,7 @@ public class VisualInterface{
 					 //minutos
 					 arrayInfo[3] = 0;
 					 //silla
-					 arrayInfo[4] = -1;
+					 arrayInfo[4] = rnd.nextInt(30);
 					 
 					 user.PushFront(idInt);
 					 hashTable.add(idInt);
@@ -283,7 +292,7 @@ public class VisualInterface{
 				 // System.out.println("Nombre: " + eMail.getText());
 				 // System.out.println("Origen: " + origin.getSelectedItem());
 				 // System.out.println("Destino: " + destination.getSelectedItem());				
-				 String nameString=name.getText();
+//				 String nameString=name.getText();
 				 String idString=id.getText();
 				 int idInt = Integer.parseInt(idString);
 				 
@@ -305,7 +314,7 @@ public class VisualInterface{
 					 //minutos
 					 arrayInfo[3] = 0;
 					 //silla
-					 arrayInfo[4] = -1;
+					 arrayInfo[4] = rnd.nextInt(30);
 					 
 					 user.PushFront(idInt);
 					 hashTable.add(idInt);
@@ -364,7 +373,8 @@ public class VisualInterface{
   	    String[] orig = new String[]{"Temprano", "Tarde"};
   	    origin.setModel(new DefaultComboBoxModel(orig));
   	    
-  	  JLabel sal = new JLabel("Hora de salida: " + arrayInfoSearch[1] + ":" + rnd.nextInt(59));
+  	   	JLabel sal = new JLabel("Hora de salida: " + arrayInfoSearch[1] + ":" + rnd.nextInt(59));
+  	   	JLabel llegada = new JLabel("Hora de llegada: " + (arrayInfoSearch[1]+2) +":"+ rnd.nextInt(59) );
   	    ////////
   	    origin.addActionListener(new ActionListener() {
 			@Override
@@ -386,14 +396,17 @@ public class VisualInterface{
 					arrayInfoSearch[1] = aux;
 				};
 				System.out.println(arrayInfoSearch[1]);
-				arrayInfoSearch[2] = 0;
+				arrayInfoSearch[2] = rnd.nextInt(59);
+//				arrayInfoSearch[2] = 0;
 				//id
 				arrayInfoSearch[3] = arrayInfo[0];
 				//pasajeros
 				
-				sal.setText( "Hora de salida: " + arrayInfoSearch[1] + ":" + rnd.nextInt(59));
+				llegada.setText( "Hora de llegada: " + (arrayInfoSearch[1]+2) + ":" + arrayInfoSearch[2]);
+				sal.setText( "Hora de salida: " + arrayInfoSearch[1] + ":" + arrayInfoSearch[2]);
 			}
 		});
+  	    
   	    ////////
   	    
   	  
@@ -404,7 +417,7 @@ public class VisualInterface{
 		locate2.insets = new Insets(10, 20, 10, 0);
 		second.add(origin, locate2);
   	   
-  	    JLabel passenger = new JLabel("Número de pasajeros: " );
+  	    JLabel passenger = new JLabel("Número de pasajeros: 1" );
   	    GridBagConstraints locate3 = new GridBagConstraints();
   	    locate3.gridx = 0;
   	    locate3.gridy = 2;
@@ -421,14 +434,17 @@ public class VisualInterface{
 			public void actionPerformed(ActionEvent e) {
 				if(number.getSelectedItem() == "1") {
 					arrayInfoSearch[4] = 1;
+					passenger.setText("Número de pasajeros: 1" );
 //					System.out.println("1");
 				}
 				else if(number.getSelectedItem() == "2") {
 					arrayInfoSearch[4] = 2;
+					passenger.setText("Número de pasajeros: 2" );
 //					System.out.println("2");
 				}
 				else if(number.getSelectedItem() == "3") {
 					arrayInfoSearch[4] = 3;
+					passenger.setText("Número de pasajeros: 3" );
 //					System.out.println("3");
 				}
 			}
@@ -440,7 +456,7 @@ public class VisualInterface{
   	    locate4.anchor = GridBagConstraints.EAST;
   	    second.add(number, locate4);
   	   
-  	    JLabel space1 = new JLabel(" ");
+  	    JLabel space1 = new JLabel(" - ");
   	    GridBagConstraints locate5 = new GridBagConstraints();
   	    locate5.gridx = 2;
   	    locate5.gridy = 1;
@@ -471,19 +487,19 @@ public class VisualInterface{
         locate7.anchor = GridBagConstraints.WEST;
         locate7.insets = new Insets(10, 20, 10, 0);
         second.add(sal, locate7);
-        sal.setText( "Hora de salida: " + arrayInfoSearch[1] + rnd.nextInt());
+        sal.setText( "Hora de salida: " + arrayInfoSearch[1] +":"+ arrayInfoSearch[2]);
         
         
         
-        JLabel lleg = new JLabel("Hora de llegada: No info" );
+//        llegada = new JLabel("Hora de llegada: " + (arrayInfoSearch[2]+2) +":"+ rnd.nextInt(59) );
         GridBagConstraints locate8 = new GridBagConstraints();
         locate8.gridx = 3;
         locate8.gridy = 3;
         locate8.anchor = GridBagConstraints.WEST;
         locate8.insets = new Insets(10, 20, 10, 0);
-        second.add(lleg, locate8);
+        second.add(llegada, locate8);
      
-        JLabel sillas = new JLabel("Sillas disponibles ");
+        JLabel sillas = new JLabel("Sillas disponibles " + arrayInfoSearch[4]);
         GridBagConstraints locate9 = new GridBagConstraints();
         locate9.gridx = 3;
         locate9.gridy = 4;
@@ -507,7 +523,29 @@ public class VisualInterface{
 				 //String prueba = (String) number.getSelectedItem();
 				 System.out.println("Filtro: " + origin.getSelectedItem());
 				 // System.out.println("Pasajeros: " + number.getSelectedItem());
-				 info.filterHour((String) origin.getSelectedItem(), city);
+//				 info.filterHour((String) origin.getSelectedItem(), city);
+				 
+				 /*
+			  	     * array[0]=city
+			  	     * array[1]=hour
+			  	     * array[2]=minutes
+			  	     * array[3]=id
+			  	     * array[4]=pasajeros
+			  	  */
+				 /*
+				  * arrayInfo[0]--> Id
+				  * arrayInfo[1]--> city
+				  * arrayInfo[2]--> hora
+				  * arrayInfo[3]--> minutos
+				  * arrayInfo[4]--> silla
+				  */
+				 arrayInfo[1] =arrayInfoSearch[0];
+				 arrayInfo[2]=arrayInfoSearch[1];
+				 arrayInfo[3]=arrayInfoSearch[2];
+				 arrayInfo[0]=arrayInfoSearch[3];
+				 arrayInfo[4]=arrayInfoSearch[4];
+														 
+				 
 				 second.setVisible(false);
 				 ThirdWindow();
 			 } 
@@ -571,7 +609,7 @@ public class VisualInterface{
 	    locate1.insets = new Insets(10, 20, 10, 0);
 	    third.add(labelName, locate1);
 	   
-	    JLabel nombre = new JLabel("Nombre ");
+	    JLabel nombre = new JLabel("");
 	    GridBagConstraints locate2 = new GridBagConstraints();
 	    locate2.gridx = 3;
 	    locate2.gridy = 1;
@@ -595,7 +633,7 @@ public class VisualInterface{
 	    locate4.insets = new Insets(10, 20, 10, 0);
 	    third.add(sal, locate4);
 	   
-	    JLabel lleg = new JLabel("Hora de llegada: No Info");
+	    JLabel lleg = new JLabel("Hora de llegada: " + Integer.toString((arrayInfo[2]+2)) + ":"+ Integer.toString(arrayInfo[3]));
 	    GridBagConstraints locate5 = new GridBagConstraints();
 	    locate5.gridx = 3;
 	    locate5.gridy = 4;
@@ -603,7 +641,7 @@ public class VisualInterface{
 	    locate5.insets = new Insets(10, 20, 10, 0);
 	    third.add(lleg, locate5);
 	   
-	    JLabel sillas = new JLabel("Sillas disponibles " + info);
+	    JLabel sillas = new JLabel("Sillas disponibles " + arrayInfo[4]);
 	    GridBagConstraints locate6 = new GridBagConstraints();
 	    locate6.gridx = 3;
 	    locate6.gridy = 5;		
@@ -665,4 +703,8 @@ public class VisualInterface{
 		
 	    frame.setVisible(true);
 	}
+
+
 }
+
+

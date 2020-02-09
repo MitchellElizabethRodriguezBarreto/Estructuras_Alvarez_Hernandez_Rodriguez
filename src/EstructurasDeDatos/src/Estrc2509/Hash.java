@@ -2,6 +2,8 @@ package Estrc2509;
 
 import java.util.Random;
 
+import Proyecto.Time;
+
 public class Hash {
 	
 	int n;
@@ -122,33 +124,37 @@ public class Hash {
 	
 	public static void main(String[] args) {
 		
-		int hashLength = 1000000;
+		int hashLength = 10000000;
 		
 		Hash myHash = new Hash(hashLength);
 				
 //		myHash.display();
 
 		Random rnd= new Random();
-				
+		Time time = new Time();
+		
+		time.initTime();
 		for (int i = 0; i < hashLength; i++) {
 			int ID = rnd.nextInt(hashLength);
 			ID = (int)Integer.toUnsignedLong(ID);
 			myHash.add(ID);
 			
-			int array[] = new int[3];
-			array[0] = rnd.nextInt(hashLength);
-			array[1] = rnd.nextInt(hashLength);
-			array[2] = rnd.nextInt(hashLength);
-
-			myHash.setArrayInfo(ID, array);
+//			int array[] = new int[3];
+//			array[0] = rnd.nextInt(hashLength);
+//			array[1] = rnd.nextInt(hashLength);
+//			array[2] = rnd.nextInt(hashLength);
+//
+//			myHash.setArrayInfo(ID, array);
 		}
+		time.finishTime();
+		time.getTime();
 		
-			myHash.display();
-			System.out.println();
-			
-			myHash.displayIndex(1);
-			System.out.println();
-			myHash.find(41).displayArray();
+//			myHash.display();
+//			System.out.println();
+//			
+//			myHash.displayIndex(1);
+//			System.out.println();
+//			myHash.find(41).displayArray();
 		
 	}
 

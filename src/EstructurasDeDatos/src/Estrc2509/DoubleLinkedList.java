@@ -1,5 +1,9 @@
 package Estrc2509;
 
+import java.util.Random;
+
+import Proyecto.Time;
+
 public class DoubleLinkedList<T> {
 
 	DoubleNode<T> head = null;
@@ -176,5 +180,32 @@ public class DoubleLinkedList<T> {
 		return;
 	}
 	
+	public static void main(String[] args) {
+		DoubleLinkedList<Integer> list = new DoubleLinkedList<Integer>();
+		Random rnd = new Random();
+		Time time = new Time();
+		
+		int n = 1000000;
+		
+		time.initTime();
+		for (int i = 0; i < n; i++) {
+			list.PushFront(rnd.nextInt(n));;
+		}
+		time.finishTime();
+		time.getTime();
+		
+		
+		time.initTime();
+		list.find(rnd.nextInt(n));
+		time.finishTime();
+		time.getTime();
 
+		time.initTime();
+		for (int i = 0; i < n; i++) {
+			list.PoPBack();
+		}
+		time.finishTime();
+		time.getTime();
+
+	}
 }
