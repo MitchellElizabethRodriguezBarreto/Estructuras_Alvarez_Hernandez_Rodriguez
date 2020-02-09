@@ -116,13 +116,13 @@ public class VisualInterface{
 		locate0.gridwidth = 5;
 		first.add(aero, locate0);
 		
-//		JLabel labelName = new JLabel("Nombre:");
-//		GridBagConstraints locate1 = new GridBagConstraints();
-//		locate1.gridx = 0;
-//		locate1.gridy = 1;
-//		locate1.anchor = GridBagConstraints.WEST;
-//		locate1.insets = new Insets(10, 20, 10, 0);
-//		first.add(labelName, locate1);
+		JLabel labelName = new JLabel("Nombre:");
+		GridBagConstraints locate1 = new GridBagConstraints();
+		locate1.gridx = 0;
+		locate1.gridy = 1;
+		locate1.anchor = GridBagConstraints.WEST;
+		locate1.insets = new Insets(10, 20, 10, 0);
+		first.add(labelName, locate1);
 		
 		
 		JLabel labelDate = new JLabel("Cédula");
@@ -161,12 +161,12 @@ public class VisualInterface{
 		
 		// Cajas de texto -------------------------------------------------------------
 		
-//		JTextField name = new JTextField(10);
-//		GridBagConstraints locate6 = new GridBagConstraints();
-//		locate6.gridx = 2;
-//		locate6.gridy = 1;
-//		locate6.anchor = GridBagConstraints.WEST;
-//		first.add(name, locate6);
+		JTextField name = new JTextField(10);
+		GridBagConstraints locate6 = new GridBagConstraints();
+		locate6.gridx = 2;
+		locate6.gridy = 1;
+		locate6.anchor = GridBagConstraints.WEST;
+		first.add(name, locate6);
 
 		JTextField id = new JTextField(10);
 		GridBagConstraints locate7 = new GridBagConstraints();
@@ -456,7 +456,7 @@ public class VisualInterface{
   	    locate4.anchor = GridBagConstraints.EAST;
   	    second.add(number, locate4);
   	   
-  	    JLabel space1 = new JLabel(" - ");
+  	    JLabel space1 = new JLabel("  ");
   	    GridBagConstraints locate5 = new GridBagConstraints();
   	    locate5.gridx = 2;
   	    locate5.gridy = 1;
@@ -499,7 +499,7 @@ public class VisualInterface{
         locate8.insets = new Insets(10, 20, 10, 0);
         second.add(llegada, locate8);
      
-        JLabel sillas = new JLabel("Sillas disponibles " + arrayInfoSearch[4]);
+        JLabel sillas = new JLabel("Sillas disponibles: " + arrayInfoSearch[4]);
         GridBagConstraints locate9 = new GridBagConstraints();
         locate9.gridx = 3;
         locate9.gridy = 4;
@@ -507,7 +507,7 @@ public class VisualInterface{
         locate9.insets = new Insets(10, 20, 10, 0);
         second.add(sillas, locate9);
      
-        JLabel costo = new JLabel("Costo " + Destination.getPrice(arrayInfoSearch[0]));
+        JLabel costo = new JLabel("Costo: " + Destination.getPrice(arrayInfoSearch[0]));
         GridBagConstraints locate10 = new GridBagConstraints();
         locate10.gridx = 3;
         locate10.gridy = 5;
@@ -641,7 +641,7 @@ public class VisualInterface{
 	    locate5.insets = new Insets(10, 20, 10, 0);
 	    third.add(lleg, locate5);
 	   
-	    JLabel sillas = new JLabel("Sillas disponibles " + arrayInfo[4]);
+	    JLabel sillas = new JLabel("Sillas disponibles: " + arrayInfo[4]);
 	    GridBagConstraints locate6 = new GridBagConstraints();
 	    locate6.gridx = 3;
 	    locate6.gridy = 5;		
