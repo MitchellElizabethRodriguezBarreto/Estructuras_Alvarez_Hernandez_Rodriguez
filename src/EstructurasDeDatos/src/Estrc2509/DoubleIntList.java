@@ -1,21 +1,17 @@
 package Estrc2509;
 
-import java.util.Random;
+public class DoubleIntList {
 
-import Proyecto.Time;
-
-public class DoubleLinkedList<T> {
-
-	DoubleNode<T> head = null;
-	DoubleNode<T> tail = null;
+	DoubleNodeNumeric head = null;
+	DoubleNodeNumeric tail = null;
 	
-	public DoubleLinkedList() {
+	public DoubleIntList() {
 		this.head = null;
 		this.tail = null;
 	}
 	
-	public void PushFront(T key) {
-		DoubleNode<T> node2 = new DoubleNode<>(key);
+	public void PushFront(int key) {
+		DoubleNodeNumeric node2 = new DoubleNodeNumeric(key);
 		
 		if(this.head == null) {
 			this.tail = node2;
@@ -33,8 +29,8 @@ public class DoubleLinkedList<T> {
 		
 	}
 	
-	public  void PushBack(T key) {
-		DoubleNode<T> node2 = new DoubleNode<>(key);
+	public  void PushBack(int key) {
+		DoubleNodeNumeric node2 = new DoubleNodeNumeric(key);
 		node2.setNext(null);
 		node2.setPrev(null);
 		
@@ -48,7 +44,6 @@ public class DoubleLinkedList<T> {
 			this.tail = node2;
 		}
 	}
-	
 	
 	public void PoPBack() {
 		if(this.head ==null) {
@@ -66,10 +61,9 @@ public class DoubleLinkedList<T> {
 		}
 	}
 	
-	
-	public DoubleNode<T> FindByKey(T key){
-		DoubleNode<T> dn = null;
-		DoubleNode<T> p = this.head;
+	public DoubleNodeNumeric FindByKey(int key){
+		DoubleNodeNumeric dn = null;
+		DoubleNodeNumeric p = this.head;
 		
 		while(p!=null) {
 			if(p.getKey() == key) {
@@ -82,7 +76,7 @@ public class DoubleLinkedList<T> {
 		return dn;
 	}
 
-	public void Pop(T key) {
+	public void Pop(int key) {
 		if(this.head == null) {
 			return;
 		}
@@ -94,8 +88,8 @@ public class DoubleLinkedList<T> {
 			head = head.getNext();
 		}
 		else {
-			DoubleNode<T> before = head;
-			DoubleNode<T> p = head.getNext();
+			DoubleNodeNumeric before = head;
+			DoubleNodeNumeric p = head.getNext();
 			
 			while(p!=tail && p.getKey() !=key){
 				before = before.getNext();
@@ -122,15 +116,15 @@ public class DoubleLinkedList<T> {
 			System.out.println("Lista Vacia...");
 		}
 		
-		DoubleNode<T> p = this.head;
+		DoubleNodeNumeric p = this.head;
 		while (p!=null) {
 			System.out.println(p.getKey());
 			p = p.getNext();
 		}
 	}
 	
-	public void AddAfter(DoubleNode<T> node, T key) {
-		DoubleNode<T> node2 = new DoubleNode<T>(key);
+	public void AddAfter(DoubleNodeNumeric node, int key) {
+		DoubleNodeNumeric node2 = new DoubleNodeNumeric(key);
 		
 		node2.setNext(node.getNext());
 		node2.setPrev(node.getPrev());
@@ -146,8 +140,8 @@ public class DoubleLinkedList<T> {
 		
 	}
 	
-	public void AddBefore(DoubleNode<T> node, T key) {
-		DoubleNode<T> node2 = new DoubleNode<T>(key);
+	public void AddBefore(DoubleNodeNumeric node, int key) {
+		DoubleNodeNumeric node2 = new DoubleNodeNumeric(key);
 		
 		node2.setNext(node);
 		node2.setPrev(node.getPrev());
@@ -163,49 +157,22 @@ public class DoubleLinkedList<T> {
 		
 	}
 	
-	public void find(T k) {
+	public boolean find(int k) {
 		if(this.head == this.tail) {
-			System.out.println("Lista Vacia...");
-			return;
+			System.out.println(false);
+			return false;
 		}
-		DoubleNode<T>p=this.head;
+		DoubleNodeNumeric p=this.head;
 		while(p.getNext() != null) {
 			if(p.getKey() == k) {
-				System.out.println("Encontrado!");
-				return;
+				System.out.println(true);
+				return true;
 			}
 			p = p.getNext();
 		}
-		System.out.println("No encontrado.");
-		return;
+		System.out.println(false);
+		return false;
 	}
 	
-	public static void main(String[] args) {
-		DoubleLinkedList<Integer> list = new DoubleLinkedList<Integer>();
-		Random rnd = new Random();
-		Time time = new Time();
-		
-		int n = 1000000;
-		
-		time.initTime();
-		for (int i = 0; i < n; i++) {
-			list.PushFront(rnd.nextInt(n));;
-		}
-		time.finishTime();
-		time.getTime();
-		
-		
-		time.initTime();
-		list.find(rnd.nextInt(n));
-		time.finishTime();
-		time.getTime();
 
-		time.initTime();
-		for (int i = 0; i < n; i++) {
-			list.PoPBack();
-		}
-		time.finishTime();
-		time.getTime();
-
-	}
 }

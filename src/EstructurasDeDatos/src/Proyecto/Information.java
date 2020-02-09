@@ -99,6 +99,9 @@ public class Information {
 		}
 	}*/
 
+	public final String temprano = "Temprano";
+	public final String tarde = "Tarde";
+	
 	public void filterHour(String filter, String city) {
 		//System.out.println(city);
 		
@@ -161,4 +164,50 @@ public class Information {
 			}
 		}
 	}
+
+	public BinarySearchTreeFly getFly(int city) {
+		if(-1 == city) {
+			return null;
+		}
+		
+		//"Cartagena"
+		if( 0 == city) {
+			return this.cartagena;
+		}
+		//"Barranquilla"
+		if( 5 == city) {
+			return this.barranquilla;
+		}
+		//"Bucaramanga"
+		if( 7 == city) {
+			return this.bucaramanga;
+		}
+		//"Cali"
+		if(3 == city) {
+			return this.cali;
+		}
+		//"Cúcuta"
+		if( 8 == city) {
+			return this.cucuta;
+		}
+		//"Medellín"
+		if( 2 == city) {
+			return this.medellin;
+		}
+		//"Montería"
+		if( 6 == city) {
+			return this.monteria;
+		}
+		//"San Andrés"
+		if( 4 == city) {
+			return this.sanandres;
+		}
+		//"Santa Marta"
+		if( 1 == city) {
+			return this.santamarta;
+		}
+			
+		return null;
+	}
+
 }

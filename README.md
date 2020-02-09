@@ -1,4 +1,4 @@
-﻿## Entrega intermedia proyecto estructuras de datos
+﻿## Entrega final proyecto estructuras de datos
 
 ### Integrantes:
 #### Óscar Eduardo Álvarez Rodríguez
@@ -9,10 +9,10 @@
 
 ### Repositorio
 
-La versión final de la entrega intermedia del proyecto se encuentra en la rama "Entrega intermedia", los demás commits se encuentran en las ramas de cada integrante del grupo y en la rama master.
+La versión final de la entrega del proyecto se encuentra en la rama "Entrega final", los demás commits se encuentran en las ramas de cada integrante del grupo y en la rama master.
 
-+ **src:** Contiene el código del avance del proyecto desarrollado en Java.
-+ **docs:** Contiene el informe de la entrega intermedia del proyecto.
++ **src:** Contiene el código final del proyecto desarrollado en Java.
++ **docs:** Contiene el informe de la entrega final del proyecto.
 + **data:** No se tiene esta carpeta debido a que los datos de prueba del proyecto se están generando por medio de números aleatorios y un ciclo *for*.
 + **dist:** No se posee esta carpeta porque el avance de la interfaz se desarrolló usando la librería *Swing* de Java. 
 + **lib:** No se posee esta carpeta porque no se descargaron librerías adicionales de Java.

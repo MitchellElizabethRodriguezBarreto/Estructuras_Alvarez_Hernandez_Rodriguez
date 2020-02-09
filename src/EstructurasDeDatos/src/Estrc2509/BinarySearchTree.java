@@ -1,5 +1,9 @@
 package Estrc2509;
 
+import java.util.Random;
+
+import Proyecto.Time;
+
 public class BinarySearchTree {
 	//Declaracion de atributos
 	public NodeTree root;
@@ -377,4 +381,33 @@ public class BinarySearchTree {
 			}
 		}
 	}
+
+
+	public static void main(String[] args) {
+		Random rnd = new Random();
+		Time time = new Time();
+		
+		int n = 100000;
+		BinarySearchTree tree = new BinarySearchTree();
+		
+		time.initTime();
+		for (int i = 0; i < n; i++) {
+			tree.insert(rnd.nextInt(n));			
+		}
+		time.finishTime();
+		time.getTime();
+		
+		time.initTime();
+		tree.find(rnd.nextInt(n), tree.root);
+		time.finishTime();
+		time.getTime();
+
+		time.initTime();
+		tree.delete(rnd.nextInt(n));
+		time.finishTime();
+		time.getTime();
+
+		
+	}
+
 }
