@@ -11,6 +11,7 @@ public class BinarySearchTreeFly {
 	root=null;
 	}
 	
+	
 	public NodeTreeFly find(int key, NodeTreeFly root) {
 		NodeTreeFly refNode = root;
 		

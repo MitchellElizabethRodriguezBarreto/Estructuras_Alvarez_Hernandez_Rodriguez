@@ -7,6 +7,7 @@ public class BinaryNodeTree<T> {
 	private int key;
 	private int Height;
 	
+	
 	private BinaryNodeTree<T> left;
 	private BinaryNodeTree<T> right;
 	private BinaryNodeTree<T> parent;
